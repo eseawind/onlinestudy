@@ -13,8 +13,8 @@ public class TestController extends AbstractController{
 
 	@RequestMapping("test")
 	@ResponseBody
-	public String test(){
+	public String test() throws Exception{
 		logger.info("welcome");
-		return "test";
+		throw new Exception("bug");
 	}
 }
