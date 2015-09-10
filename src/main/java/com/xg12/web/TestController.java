@@ -15,6 +15,6 @@ public class TestController extends AbstractController{
 	@ResponseBody
 	public String test() throws Exception{
 		logger.info("welcome");
-		throw new Exception("bug");
+		throw new Exception("unknown error");
 	}
 }

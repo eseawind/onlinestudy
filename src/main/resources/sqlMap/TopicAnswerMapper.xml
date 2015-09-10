@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xg12.dao.TopicAnswerMapper">
+  <resultMap id="BaseResultMap" type="com.xg12.entity.TopicAnswer">
+    <id column="topic_answer_id" jdbcType="INTEGER" property="topicAnswerId" />
+    <result column="isTrue" jdbcType="BIT" property="istrue" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sequence" jdbcType="INTEGER" property="sequence" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    topic_answer_id, isTrue, content, sequence
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.TopicAnswerCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.TopicAnswerCriteria">
+    delete from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer (topic_answer_id, isTrue, content, 
+      sequence)
+    values (#{topicAnswerId,jdbcType=INTEGER}, #{istrue,jdbcType=BIT}, #{content,jdbcType=VARCHAR}, 
+      #{sequence,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        topic_answer_id,
+      </if>
+      <if test="istrue != null">
+        isTrue,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="sequence != null">
+        sequence,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        #{topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="istrue != null">
+        #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        #{sequence,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.TopicAnswerCriteria" resultType="java.lang.Integer">
+    select count(*) from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_topic_answer
+    <set>
+      <if test="record.topicAnswerId != null">
+        topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.istrue != null">
+        isTrue = #{record.istrue,jdbcType=BIT},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sequence != null">
+        sequence = #{record.sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_topic_answer
+    set topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      isTrue = #{record.istrue,jdbcType=BIT},
+      content = #{record.content,jdbcType=VARCHAR},
+      sequence = #{record.sequence,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    <set>
+      <if test="istrue != null">
+        isTrue = #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        sequence = #{sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    set isTrue = #{istrue,jdbcType=BIT},
+      content = #{content,jdbcType=VARCHAR},
+      sequence = #{sequence,jdbcType=INTEGER}
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xg12.entity.TopicAnswer">
+    <id column="topic_answer_id" jdbcType="INTEGER" property="topicAnswerId" />
+    <result column="isTrue" jdbcType="BIT" property="istrue" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sequence" jdbcType="INTEGER" property="sequence" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    topic_answer_id, isTrue, content, sequence
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.TopicAnswerCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.TopicAnswerCriteria">
+    delete from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer (topic_answer_id, isTrue, content, 
+      sequence)
+    values (#{topicAnswerId,jdbcType=INTEGER}, #{istrue,jdbcType=BIT}, #{content,jdbcType=VARCHAR}, 
+      #{sequence,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        topic_answer_id,
+      </if>
+      <if test="istrue != null">
+        isTrue,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="sequence != null">
+        sequence,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        #{topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="istrue != null">
+        #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        #{sequence,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.TopicAnswerCriteria" resultType="java.lang.Integer">
+    select count(*) from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_topic_answer
+    <set>
+      <if test="record.topicAnswerId != null">
+        topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.istrue != null">
+        isTrue = #{record.istrue,jdbcType=BIT},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sequence != null">
+        sequence = #{record.sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_topic_answer
+    set topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      isTrue = #{record.istrue,jdbcType=BIT},
+      content = #{record.content,jdbcType=VARCHAR},
+      sequence = #{record.sequence,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    <set>
+      <if test="istrue != null">
+        isTrue = #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        sequence = #{sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    set isTrue = #{istrue,jdbcType=BIT},
+      content = #{content,jdbcType=VARCHAR},
+      sequence = #{sequence,jdbcType=INTEGER}
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xg12.entity.TopicAnswer">
+    <id column="topic_answer_id" jdbcType="INTEGER" property="topicAnswerId" />
+    <result column="isTrue" jdbcType="BIT" property="istrue" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sequence" jdbcType="INTEGER" property="sequence" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    topic_answer_id, isTrue, content, sequence
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.TopicAnswerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.TopicAnswerExample">
+    delete from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer (topic_answer_id, isTrue, content, 
+      sequence)
+    values (#{topicAnswerId,jdbcType=INTEGER}, #{istrue,jdbcType=BIT}, #{content,jdbcType=VARCHAR}, 
+      #{sequence,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        topic_answer_id,
+      </if>
+      <if test="istrue != null">
+        isTrue,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="sequence != null">
+        sequence,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        #{topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="istrue != null">
+        #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        #{sequence,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.TopicAnswerExample" resultType="java.lang.Integer">
+    select count(*) from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_topic_answer
+    <set>
+      <if test="record.topicAnswerId != null">
+        topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.istrue != null">
+        isTrue = #{record.istrue,jdbcType=BIT},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sequence != null">
+        sequence = #{record.sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_topic_answer
+    set topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      isTrue = #{record.istrue,jdbcType=BIT},
+      content = #{record.content,jdbcType=VARCHAR},
+      sequence = #{record.sequence,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    <set>
+      <if test="istrue != null">
+        isTrue = #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        sequence = #{sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    set isTrue = #{istrue,jdbcType=BIT},
+      content = #{content,jdbcType=VARCHAR},
+      sequence = #{sequence,jdbcType=INTEGER}
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xg12.entity.TopicAnswer">
+    <id column="topic_answer_id" jdbcType="INTEGER" property="topicAnswerId" />
+    <result column="isTrue" jdbcType="BIT" property="istrue" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sequence" jdbcType="INTEGER" property="sequence" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    topic_answer_id, isTrue, content, sequence
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.TopicAnswerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_topic_answer
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.TopicAnswerExample">
+    delete from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer (topic_answer_id, isTrue, content, 
+      sequence)
+    values (#{topicAnswerId,jdbcType=INTEGER}, #{istrue,jdbcType=BIT}, #{content,jdbcType=VARCHAR}, 
+      #{sequence,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.TopicAnswer">
+    insert into t_topic_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        topic_answer_id,
+      </if>
+      <if test="istrue != null">
+        isTrue,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="sequence != null">
+        sequence,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="topicAnswerId != null">
+        #{topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="istrue != null">
+        #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        #{sequence,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.TopicAnswerExample" resultType="java.lang.Integer">
+    select count(*) from t_topic_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_topic_answer
+    <set>
+      <if test="record.topicAnswerId != null">
+        topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.istrue != null">
+        isTrue = #{record.istrue,jdbcType=BIT},
+      </if>
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sequence != null">
+        sequence = #{record.sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_topic_answer
+    set topic_answer_id = #{record.topicAnswerId,jdbcType=INTEGER},
+      isTrue = #{record.istrue,jdbcType=BIT},
+      content = #{record.content,jdbcType=VARCHAR},
+      sequence = #{record.sequence,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    <set>
+      <if test="istrue != null">
+        isTrue = #{istrue,jdbcType=BIT},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sequence != null">
+        sequence = #{sequence,jdbcType=INTEGER},
+      </if>
+    </set>
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.TopicAnswer">
+    update t_topic_answer
+    set isTrue = #{istrue,jdbcType=BIT},
+      content = #{content,jdbcType=VARCHAR},
+      sequence = #{sequence,jdbcType=INTEGER}
+    where topic_answer_id = #{topicAnswerId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xg12.dao.OperationMapper">
+  <resultMap id="BaseResultMap" type="com.xg12.entity.Operation">
+    <id column="operation_id" jdbcType="INTEGER" property="operationId" />
+    <result column="parent_operation_id" jdbcType="INTEGER" property="parentOperationId" />
+    <result column="view" jdbcType="VARCHAR" property="view" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    operation_id, parent_operation_id, view, description
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.OperationCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.OperationCriteria">
+    delete from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.Operation">
+    insert into t_operation (operation_id, parent_operation_id, view, 
+      description)
+    values (#{operationId,jdbcType=INTEGER}, #{parentOperationId,jdbcType=INTEGER}, #{view,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.Operation">
+    insert into t_operation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        operation_id,
+      </if>
+      <if test="parentOperationId != null">
+        parent_operation_id,
+      </if>
+      <if test="view != null">
+        view,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        #{operationId,jdbcType=INTEGER},
+      </if>
+      <if test="parentOperationId != null">
+        #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.OperationCriteria" resultType="java.lang.Integer">
+    select count(*) from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_operation
+    <set>
+      <if test="record.operationId != null">
+        operation_id = #{record.operationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentOperationId != null">
+        parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.view != null">
+        view = #{record.view,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_operation
+    set operation_id = #{record.operationId,jdbcType=INTEGER},
+      parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      view = #{record.view,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    <set>
+      <if test="parentOperationId != null">
+        parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        view = #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    set parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      view = #{view,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xg12.entity.Operation">
+    <id column="operation_id" jdbcType="INTEGER" property="operationId" />
+    <result column="parent_operation_id" jdbcType="INTEGER" property="parentOperationId" />
+    <result column="view" jdbcType="VARCHAR" property="view" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    operation_id, parent_operation_id, view, description
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.OperationCriteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.OperationCriteria">
+    delete from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.Operation">
+    insert into t_operation (operation_id, parent_operation_id, view, 
+      description)
+    values (#{operationId,jdbcType=INTEGER}, #{parentOperationId,jdbcType=INTEGER}, #{view,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.Operation">
+    insert into t_operation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        operation_id,
+      </if>
+      <if test="parentOperationId != null">
+        parent_operation_id,
+      </if>
+      <if test="view != null">
+        view,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        #{operationId,jdbcType=INTEGER},
+      </if>
+      <if test="parentOperationId != null">
+        #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.OperationCriteria" resultType="java.lang.Integer">
+    select count(*) from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_operation
+    <set>
+      <if test="record.operationId != null">
+        operation_id = #{record.operationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentOperationId != null">
+        parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.view != null">
+        view = #{record.view,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_operation
+    set operation_id = #{record.operationId,jdbcType=INTEGER},
+      parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      view = #{record.view,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    <set>
+      <if test="parentOperationId != null">
+        parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        view = #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    set parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      view = #{view,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xg12.entity.Operation">
+    <id column="operation_id" jdbcType="INTEGER" property="operationId" />
+    <result column="parent_operation_id" jdbcType="INTEGER" property="parentOperationId" />
+    <result column="view" jdbcType="VARCHAR" property="view" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    operation_id, parent_operation_id, view, description
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.OperationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.OperationExample">
+    delete from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.Operation">
+    insert into t_operation (operation_id, parent_operation_id, view, 
+      description)
+    values (#{operationId,jdbcType=INTEGER}, #{parentOperationId,jdbcType=INTEGER}, #{view,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.Operation">
+    insert into t_operation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        operation_id,
+      </if>
+      <if test="parentOperationId != null">
+        parent_operation_id,
+      </if>
+      <if test="view != null">
+        view,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        #{operationId,jdbcType=INTEGER},
+      </if>
+      <if test="parentOperationId != null">
+        #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.OperationExample" resultType="java.lang.Integer">
+    select count(*) from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_operation
+    <set>
+      <if test="record.operationId != null">
+        operation_id = #{record.operationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentOperationId != null">
+        parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.view != null">
+        view = #{record.view,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_operation
+    set operation_id = #{record.operationId,jdbcType=INTEGER},
+      parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      view = #{record.view,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    <set>
+      <if test="parentOperationId != null">
+        parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        view = #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    set parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      view = #{view,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xg12.entity.Operation">
+    <id column="operation_id" jdbcType="INTEGER" property="operationId" />
+    <result column="parent_operation_id" jdbcType="INTEGER" property="parentOperationId" />
+    <result column="view" jdbcType="VARCHAR" property="view" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    operation_id, parent_operation_id, view, description
+  </sql>
+  <select id="selectByExample" parameterType="com.xg12.entity.OperationExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_operation
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xg12.entity.OperationExample">
+    delete from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xg12.entity.Operation">
+    insert into t_operation (operation_id, parent_operation_id, view, 
+      description)
+    values (#{operationId,jdbcType=INTEGER}, #{parentOperationId,jdbcType=INTEGER}, #{view,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xg12.entity.Operation">
+    insert into t_operation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        operation_id,
+      </if>
+      <if test="parentOperationId != null">
+        parent_operation_id,
+      </if>
+      <if test="view != null">
+        view,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="operationId != null">
+        #{operationId,jdbcType=INTEGER},
+      </if>
+      <if test="parentOperationId != null">
+        #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xg12.entity.OperationExample" resultType="java.lang.Integer">
+    select count(*) from t_operation
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_operation
+    <set>
+      <if test="record.operationId != null">
+        operation_id = #{record.operationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.parentOperationId != null">
+        parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.view != null">
+        view = #{record.view,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_operation
+    set operation_id = #{record.operationId,jdbcType=INTEGER},
+      parent_operation_id = #{record.parentOperationId,jdbcType=INTEGER},
+      view = #{record.view,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    <set>
+      <if test="parentOperationId != null">
+        parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      </if>
+      <if test="view != null">
+        view = #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xg12.entity.Operation">
+    update t_operation
+    set parent_operation_id = #{parentOperationId,jdbcType=INTEGER},
+      view = #{view,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where operation_id = #{operationId,jdbcType=INTEGER}
+  </update>
+</mapper>

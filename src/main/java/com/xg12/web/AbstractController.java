@@ -17,6 +17,7 @@ public abstract class AbstractController {
 	@ResponseBody
 	public String exception(Exception e){
 		logger.error("发生未知错误:{}", e.getMessage());
+		e.printStackTrace();
 		return "error";
 	}
 }
