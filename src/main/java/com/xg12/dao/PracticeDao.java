@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface PracticeMapper {
+public interface PracticeDao {
     int countByExample(PracticeCriteria example);
 
     int deleteByExample(PracticeCriteria example);

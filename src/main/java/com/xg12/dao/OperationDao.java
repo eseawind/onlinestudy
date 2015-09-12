@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface OperationMapper {
+public interface OperationDao {
     int countByExample(OperationCriteria example);
 
     int deleteByExample(OperationCriteria example);

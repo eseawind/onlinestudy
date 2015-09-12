@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface StudenclassMapper {
+public interface StudenclassDao {
     int countByExample(StudenclassCriteria example);
 
     int deleteByExample(StudenclassCriteria example);

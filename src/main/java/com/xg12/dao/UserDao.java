@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface UserMapper {
+public interface UserDao {
     int countByExample(UserCriteria example);
 
     int deleteByExample(UserCriteria example);

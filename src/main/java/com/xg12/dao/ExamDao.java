@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface ExamMapper {
+public interface ExamDao {
     int countByExample(ExamCriteria example);
 
     int deleteByExample(ExamCriteria example);

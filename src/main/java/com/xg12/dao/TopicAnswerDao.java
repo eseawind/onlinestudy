@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface TopicAnswerMapper {
+public interface TopicAnswerDao {
     int countByExample(TopicAnswerCriteria example);
 
     int deleteByExample(TopicAnswerCriteria example);

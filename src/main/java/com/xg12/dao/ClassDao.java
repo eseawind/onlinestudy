@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface ClassMapper {
+public interface ClassDao {
     int countByExample(ClassCriteria example);
 
     int deleteByExample(ClassCriteria example);

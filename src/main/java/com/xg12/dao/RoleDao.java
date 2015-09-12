@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface RoleMapper {
+public interface RoleDao {
     int countByExample(RoleCriteria example);
 
     int deleteByExample(RoleCriteria example);

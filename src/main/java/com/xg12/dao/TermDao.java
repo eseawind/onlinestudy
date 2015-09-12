@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-public interface TermMapper {
+public interface TermDao {
     int countByExample(TermCriteria example);
 
     int deleteByExample(TermCriteria example);
