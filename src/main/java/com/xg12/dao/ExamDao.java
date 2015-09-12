@@ -7,26 +7,35 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+/**
+--------------------------个人声明-----------------------------
+* @Project: onlinestudy
+* @File: ExamDao.java
+* @Date: 2015年9月12日 下午5:26:49
+* @Author: ZHUANGZHIXUAN 
+*/
 public interface ExamDao {
-    int countByExample(ExamCriteria example);
+	int countByExample(ExamCriteria example);
 
-    int deleteByExample(ExamCriteria example);
+	int deleteByExample(ExamCriteria example);
 
-    int deleteByPrimaryKey(Integer examId);
+	int deleteByPrimaryKey(Integer examId);
 
-    int insert(Exam record);
+	int insert(Exam record);
 
-    int insertSelective(Exam record);
+	int insertSelective(Exam record);
 
-    List<Exam> selectByExample(ExamCriteria example);
+	List<Exam> selectByExample(ExamCriteria example);
 
-    Exam selectByPrimaryKey(Integer examId);
+	Exam selectByPrimaryKey(Integer examId);
 
-    int updateByExampleSelective(@Param("record") Exam record, @Param("example") ExamCriteria example);
+	int updateByExampleSelective(@Param("record") Exam record,
+			@Param("example") ExamCriteria example);
 
-    int updateByExample(@Param("record") Exam record, @Param("example") ExamCriteria example);
+	int updateByExample(@Param("record") Exam record,
+			@Param("example") ExamCriteria example);
 
-    int updateByPrimaryKeySelective(Exam record);
+	int updateByPrimaryKeySelective(Exam record);
 
-    int updateByPrimaryKey(Exam record);
+	int updateByPrimaryKey(Exam record);
 }

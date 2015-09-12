@@ -7,26 +7,36 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * --------------------------个人声明-----------------------------
+ * 
+ * @Project: onlinestudy
+ * @File: TopicAnswerDao.java
+ * @Date: 2015年9月12日 下午5:28:28
+ * @Author: ZHUANGZHIXUAN
+ */
 public interface TopicAnswerDao {
-    int countByExample(TopicAnswerCriteria example);
+	int countByExample(TopicAnswerCriteria example);
 
-    int deleteByExample(TopicAnswerCriteria example);
+	int deleteByExample(TopicAnswerCriteria example);
 
-    int deleteByPrimaryKey(Integer topicAnswerId);
+	int deleteByPrimaryKey(Integer topicAnswerId);
 
-    int insert(TopicAnswer record);
+	int insert(TopicAnswer record);
 
-    int insertSelective(TopicAnswer record);
+	int insertSelective(TopicAnswer record);
 
-    List<TopicAnswer> selectByExample(TopicAnswerCriteria example);
+	List<TopicAnswer> selectByExample(TopicAnswerCriteria example);
 
-    TopicAnswer selectByPrimaryKey(Integer topicAnswerId);
+	TopicAnswer selectByPrimaryKey(Integer topicAnswerId);
 
-    int updateByExampleSelective(@Param("record") TopicAnswer record, @Param("example") TopicAnswerCriteria example);
+	int updateByExampleSelective(@Param("record") TopicAnswer record,
+			@Param("example") TopicAnswerCriteria example);
 
-    int updateByExample(@Param("record") TopicAnswer record, @Param("example") TopicAnswerCriteria example);
+	int updateByExample(@Param("record") TopicAnswer record,
+			@Param("example") TopicAnswerCriteria example);
 
-    int updateByPrimaryKeySelective(TopicAnswer record);
+	int updateByPrimaryKeySelective(TopicAnswer record);
 
-    int updateByPrimaryKey(TopicAnswer record);
+	int updateByPrimaryKey(TopicAnswer record);
 }

@@ -7,26 +7,36 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * --------------------------个人声明-----------------------------
+ * 
+ * @Project: onlinestudy
+ * @File: UserDao.java
+ * @Date: 2015年9月12日 下午5:29:04
+ * @Author: ZHUANGZHIXUAN
+ */
 public interface UserDao {
-    int countByExample(UserCriteria example);
+	int countByExample(UserCriteria example);
 
-    int deleteByExample(UserCriteria example);
+	int deleteByExample(UserCriteria example);
 
-    int deleteByPrimaryKey(Integer userId);
+	int deleteByPrimaryKey(Integer userId);
 
-    int insert(User record);
+	int insert(User record);
 
-    int insertSelective(User record);
+	int insertSelective(User record);
 
-    List<User> selectByExample(UserCriteria example);
+	List<User> selectByExample(UserCriteria example);
 
-    User selectByPrimaryKey(Integer userId);
+	User selectByPrimaryKey(Integer userId);
 
-    int updateByExampleSelective(@Param("record") User record, @Param("example") UserCriteria example);
+	int updateByExampleSelective(@Param("record") User record,
+			@Param("example") UserCriteria example);
 
-    int updateByExample(@Param("record") User record, @Param("example") UserCriteria example);
+	int updateByExample(@Param("record") User record,
+			@Param("example") UserCriteria example);
 
-    int updateByPrimaryKeySelective(User record);
+	int updateByPrimaryKeySelective(User record);
 
-    int updateByPrimaryKey(User record);
+	int updateByPrimaryKey(User record);
 }
