@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.ExamTopic;
-import com.xg12.entity.ExamTopicCriteria;
+import com.xg12.entity.criteria.ExamTopicCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ExamTopicMapper {

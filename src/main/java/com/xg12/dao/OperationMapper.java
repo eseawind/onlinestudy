@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.Operation;
-import com.xg12.entity.OperationCriteria;
+import com.xg12.entity.criteria.OperationCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface OperationMapper {

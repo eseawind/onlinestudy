@@ -1,4 +1,4 @@
-package com.xg12.entity;
+package com.xg12.entity.criteria;
 
 import java.util.ArrayList;
 import java.util.List;

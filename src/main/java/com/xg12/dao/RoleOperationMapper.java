@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.RoleOperation;
-import com.xg12.entity.RoleOperationCriteria;
+import com.xg12.entity.criteria.RoleOperationCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleOperationMapper {

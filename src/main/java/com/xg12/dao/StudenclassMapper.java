@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.Studenclass;
-import com.xg12.entity.StudenclassCriteria;
+import com.xg12.entity.criteria.StudenclassCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface StudenclassMapper {

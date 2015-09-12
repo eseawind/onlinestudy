@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.TeacherCourse;
-import com.xg12.entity.TeacherCourseCriteria;
+import com.xg12.entity.criteria.TeacherCourseCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TeacherCourseMapper {

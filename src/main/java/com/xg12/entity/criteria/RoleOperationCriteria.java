@@ -1,16 +1,16 @@
-package com.xg12.entity;
+package com.xg12.entity.criteria;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherCourseCriteria {
+public class RoleOperationCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TeacherCourseCriteria() {
+    public RoleOperationCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,123 +104,123 @@ public class TeacherCourseCriteria {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andCourseIdIsNull() {
-            addCriterion("course_id is null");
+        public Criteria andRoleIdIsNull() {
+            addCriterion("role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdIsNotNull() {
-            addCriterion("course_id is not null");
+        public Criteria andRoleIdIsNotNull() {
+            addCriterion("role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdEqualTo(Integer value) {
-            addCriterion("course_id =", value, "courseId");
+        public Criteria andRoleIdEqualTo(Integer value) {
+            addCriterion("role_id =", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdNotEqualTo(Integer value) {
-            addCriterion("course_id <>", value, "courseId");
+        public Criteria andRoleIdNotEqualTo(Integer value) {
+            addCriterion("role_id <>", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdGreaterThan(Integer value) {
-            addCriterion("course_id >", value, "courseId");
+        public Criteria andRoleIdGreaterThan(Integer value) {
+            addCriterion("role_id >", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("course_id >=", value, "courseId");
+        public Criteria andRoleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_id >=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdLessThan(Integer value) {
-            addCriterion("course_id <", value, "courseId");
+        public Criteria andRoleIdLessThan(Integer value) {
+            addCriterion("role_id <", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdLessThanOrEqualTo(Integer value) {
-            addCriterion("course_id <=", value, "courseId");
+        public Criteria andRoleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("role_id <=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdIn(List<Integer> values) {
-            addCriterion("course_id in", values, "courseId");
+        public Criteria andRoleIdIn(List<Integer> values) {
+            addCriterion("role_id in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdNotIn(List<Integer> values) {
-            addCriterion("course_id not in", values, "courseId");
+        public Criteria andRoleIdNotIn(List<Integer> values) {
+            addCriterion("role_id not in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdBetween(Integer value1, Integer value2) {
-            addCriterion("course_id between", value1, value2, "courseId");
+        public Criteria andRoleIdBetween(Integer value1, Integer value2) {
+            addCriterion("role_id between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andCourseIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("course_id not between", value1, value2, "courseId");
+        public Criteria andRoleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_id not between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIsNull() {
-            addCriterion("teacher_id is null");
+        public Criteria andOperationIdIsNull() {
+            addCriterion("operation_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIsNotNull() {
-            addCriterion("teacher_id is not null");
+        public Criteria andOperationIdIsNotNull() {
+            addCriterion("operation_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdEqualTo(Integer value) {
-            addCriterion("teacher_id =", value, "teacherId");
+        public Criteria andOperationIdEqualTo(Integer value) {
+            addCriterion("operation_id =", value, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotEqualTo(Integer value) {
-            addCriterion("teacher_id <>", value, "teacherId");
+        public Criteria andOperationIdNotEqualTo(Integer value) {
+            addCriterion("operation_id <>", value, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdGreaterThan(Integer value) {
-            addCriterion("teacher_id >", value, "teacherId");
+        public Criteria andOperationIdGreaterThan(Integer value) {
+            addCriterion("operation_id >", value, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("teacher_id >=", value, "teacherId");
+        public Criteria andOperationIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("operation_id >=", value, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdLessThan(Integer value) {
-            addCriterion("teacher_id <", value, "teacherId");
+        public Criteria andOperationIdLessThan(Integer value) {
+            addCriterion("operation_id <", value, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdLessThanOrEqualTo(Integer value) {
-            addCriterion("teacher_id <=", value, "teacherId");
+        public Criteria andOperationIdLessThanOrEqualTo(Integer value) {
+            addCriterion("operation_id <=", value, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdIn(List<Integer> values) {
-            addCriterion("teacher_id in", values, "teacherId");
+        public Criteria andOperationIdIn(List<Integer> values) {
+            addCriterion("operation_id in", values, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotIn(List<Integer> values) {
-            addCriterion("teacher_id not in", values, "teacherId");
+        public Criteria andOperationIdNotIn(List<Integer> values) {
+            addCriterion("operation_id not in", values, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdBetween(Integer value1, Integer value2) {
-            addCriterion("teacher_id between", value1, value2, "teacherId");
+        public Criteria andOperationIdBetween(Integer value1, Integer value2) {
+            addCriterion("operation_id between", value1, value2, "operationId");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("teacher_id not between", value1, value2, "teacherId");
+        public Criteria andOperationIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("operation_id not between", value1, value2, "operationId");
             return (Criteria) this;
         }
     }

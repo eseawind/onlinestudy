@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.Term;
-import com.xg12.entity.TermCriteria;
+import com.xg12.entity.criteria.TermCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TermMapper {

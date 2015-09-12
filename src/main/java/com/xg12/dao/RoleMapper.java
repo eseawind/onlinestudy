@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.Role;
-import com.xg12.entity.RoleCriteria;
+import com.xg12.entity.criteria.RoleCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleMapper {

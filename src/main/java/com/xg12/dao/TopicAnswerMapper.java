@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.TopicAnswer;
-import com.xg12.entity.TopicAnswerCriteria;
+import com.xg12.entity.criteria.TopicAnswerCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface TopicAnswerMapper {

@@ -1,16 +1,16 @@
-package com.xg12.entity;
+package com.xg12.entity.criteria;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperationCriteria {
+public class TopicTypeCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public OperationCriteria() {
+    public TopicTypeCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,193 +104,63 @@ public class OperationCriteria {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andOperationIdIsNull() {
-            addCriterion("operation_id is null");
+        public Criteria andTopicTypeIdIsNull() {
+            addCriterion("topic_type_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdIsNotNull() {
-            addCriterion("operation_id is not null");
+        public Criteria andTopicTypeIdIsNotNull() {
+            addCriterion("topic_type_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdEqualTo(Integer value) {
-            addCriterion("operation_id =", value, "operationId");
+        public Criteria andTopicTypeIdEqualTo(Integer value) {
+            addCriterion("topic_type_id =", value, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdNotEqualTo(Integer value) {
-            addCriterion("operation_id <>", value, "operationId");
+        public Criteria andTopicTypeIdNotEqualTo(Integer value) {
+            addCriterion("topic_type_id <>", value, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdGreaterThan(Integer value) {
-            addCriterion("operation_id >", value, "operationId");
+        public Criteria andTopicTypeIdGreaterThan(Integer value) {
+            addCriterion("topic_type_id >", value, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("operation_id >=", value, "operationId");
+        public Criteria andTopicTypeIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("topic_type_id >=", value, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdLessThan(Integer value) {
-            addCriterion("operation_id <", value, "operationId");
+        public Criteria andTopicTypeIdLessThan(Integer value) {
+            addCriterion("topic_type_id <", value, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdLessThanOrEqualTo(Integer value) {
-            addCriterion("operation_id <=", value, "operationId");
+        public Criteria andTopicTypeIdLessThanOrEqualTo(Integer value) {
+            addCriterion("topic_type_id <=", value, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdIn(List<Integer> values) {
-            addCriterion("operation_id in", values, "operationId");
+        public Criteria andTopicTypeIdIn(List<Integer> values) {
+            addCriterion("topic_type_id in", values, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdNotIn(List<Integer> values) {
-            addCriterion("operation_id not in", values, "operationId");
+        public Criteria andTopicTypeIdNotIn(List<Integer> values) {
+            addCriterion("topic_type_id not in", values, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdBetween(Integer value1, Integer value2) {
-            addCriterion("operation_id between", value1, value2, "operationId");
+        public Criteria andTopicTypeIdBetween(Integer value1, Integer value2) {
+            addCriterion("topic_type_id between", value1, value2, "topicTypeId");
             return (Criteria) this;
         }
 
-        public Criteria andOperationIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("operation_id not between", value1, value2, "operationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdIsNull() {
-            addCriterion("parent_operation_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdIsNotNull() {
-            addCriterion("parent_operation_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdEqualTo(Integer value) {
-            addCriterion("parent_operation_id =", value, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdNotEqualTo(Integer value) {
-            addCriterion("parent_operation_id <>", value, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdGreaterThan(Integer value) {
-            addCriterion("parent_operation_id >", value, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("parent_operation_id >=", value, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdLessThan(Integer value) {
-            addCriterion("parent_operation_id <", value, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdLessThanOrEqualTo(Integer value) {
-            addCriterion("parent_operation_id <=", value, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdIn(List<Integer> values) {
-            addCriterion("parent_operation_id in", values, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdNotIn(List<Integer> values) {
-            addCriterion("parent_operation_id not in", values, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdBetween(Integer value1, Integer value2) {
-            addCriterion("parent_operation_id between", value1, value2, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentOperationIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("parent_operation_id not between", value1, value2, "parentOperationId");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewIsNull() {
-            addCriterion("view is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewIsNotNull() {
-            addCriterion("view is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewEqualTo(String value) {
-            addCriterion("view =", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewNotEqualTo(String value) {
-            addCriterion("view <>", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewGreaterThan(String value) {
-            addCriterion("view >", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewGreaterThanOrEqualTo(String value) {
-            addCriterion("view >=", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewLessThan(String value) {
-            addCriterion("view <", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewLessThanOrEqualTo(String value) {
-            addCriterion("view <=", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewLike(String value) {
-            addCriterion("view like", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewNotLike(String value) {
-            addCriterion("view not like", value, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewIn(List<String> values) {
-            addCriterion("view in", values, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewNotIn(List<String> values) {
-            addCriterion("view not in", values, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewBetween(String value1, String value2) {
-            addCriterion("view between", value1, value2, "view");
-            return (Criteria) this;
-        }
-
-        public Criteria andViewNotBetween(String value1, String value2) {
-            addCriterion("view not between", value1, value2, "view");
+        public Criteria andTopicTypeIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("topic_type_id not between", value1, value2, "topicTypeId");
             return (Criteria) this;
         }
 

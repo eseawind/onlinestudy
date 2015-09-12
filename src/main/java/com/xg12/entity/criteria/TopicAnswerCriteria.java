@@ -1,16 +1,16 @@
-package com.xg12.entity;
+package com.xg12.entity.criteria;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PracticeAnswerCriteria {
+public class TopicAnswerCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public PracticeAnswerCriteria() {
+    public TopicAnswerCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,183 +104,123 @@ public class PracticeAnswerCriteria {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andTopicIdIsNull() {
-            addCriterion("topic_id is null");
+        public Criteria andTopicAnswerIdIsNull() {
+            addCriterion("topic_answer_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdIsNotNull() {
-            addCriterion("topic_id is not null");
+        public Criteria andTopicAnswerIdIsNotNull() {
+            addCriterion("topic_answer_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdEqualTo(Integer value) {
-            addCriterion("topic_id =", value, "topicId");
+        public Criteria andTopicAnswerIdEqualTo(Integer value) {
+            addCriterion("topic_answer_id =", value, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdNotEqualTo(Integer value) {
-            addCriterion("topic_id <>", value, "topicId");
+        public Criteria andTopicAnswerIdNotEqualTo(Integer value) {
+            addCriterion("topic_answer_id <>", value, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdGreaterThan(Integer value) {
-            addCriterion("topic_id >", value, "topicId");
+        public Criteria andTopicAnswerIdGreaterThan(Integer value) {
+            addCriterion("topic_answer_id >", value, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("topic_id >=", value, "topicId");
+        public Criteria andTopicAnswerIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("topic_answer_id >=", value, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdLessThan(Integer value) {
-            addCriterion("topic_id <", value, "topicId");
+        public Criteria andTopicAnswerIdLessThan(Integer value) {
+            addCriterion("topic_answer_id <", value, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdLessThanOrEqualTo(Integer value) {
-            addCriterion("topic_id <=", value, "topicId");
+        public Criteria andTopicAnswerIdLessThanOrEqualTo(Integer value) {
+            addCriterion("topic_answer_id <=", value, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdIn(List<Integer> values) {
-            addCriterion("topic_id in", values, "topicId");
+        public Criteria andTopicAnswerIdIn(List<Integer> values) {
+            addCriterion("topic_answer_id in", values, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdNotIn(List<Integer> values) {
-            addCriterion("topic_id not in", values, "topicId");
+        public Criteria andTopicAnswerIdNotIn(List<Integer> values) {
+            addCriterion("topic_answer_id not in", values, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdBetween(Integer value1, Integer value2) {
-            addCriterion("topic_id between", value1, value2, "topicId");
+        public Criteria andTopicAnswerIdBetween(Integer value1, Integer value2) {
+            addCriterion("topic_answer_id between", value1, value2, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("topic_id not between", value1, value2, "topicId");
+        public Criteria andTopicAnswerIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("topic_answer_id not between", value1, value2, "topicAnswerId");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdIsNull() {
-            addCriterion("practice_id is null");
+        public Criteria andIstrueIsNull() {
+            addCriterion("isTrue is null");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdIsNotNull() {
-            addCriterion("practice_id is not null");
+        public Criteria andIstrueIsNotNull() {
+            addCriterion("isTrue is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdEqualTo(Integer value) {
-            addCriterion("practice_id =", value, "practiceId");
+        public Criteria andIstrueEqualTo(Boolean value) {
+            addCriterion("isTrue =", value, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdNotEqualTo(Integer value) {
-            addCriterion("practice_id <>", value, "practiceId");
+        public Criteria andIstrueNotEqualTo(Boolean value) {
+            addCriterion("isTrue <>", value, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdGreaterThan(Integer value) {
-            addCriterion("practice_id >", value, "practiceId");
+        public Criteria andIstrueGreaterThan(Boolean value) {
+            addCriterion("isTrue >", value, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("practice_id >=", value, "practiceId");
+        public Criteria andIstrueGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("isTrue >=", value, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdLessThan(Integer value) {
-            addCriterion("practice_id <", value, "practiceId");
+        public Criteria andIstrueLessThan(Boolean value) {
+            addCriterion("isTrue <", value, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdLessThanOrEqualTo(Integer value) {
-            addCriterion("practice_id <=", value, "practiceId");
+        public Criteria andIstrueLessThanOrEqualTo(Boolean value) {
+            addCriterion("isTrue <=", value, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdIn(List<Integer> values) {
-            addCriterion("practice_id in", values, "practiceId");
+        public Criteria andIstrueIn(List<Boolean> values) {
+            addCriterion("isTrue in", values, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdNotIn(List<Integer> values) {
-            addCriterion("practice_id not in", values, "practiceId");
+        public Criteria andIstrueNotIn(List<Boolean> values) {
+            addCriterion("isTrue not in", values, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdBetween(Integer value1, Integer value2) {
-            addCriterion("practice_id between", value1, value2, "practiceId");
+        public Criteria andIstrueBetween(Boolean value1, Boolean value2) {
+            addCriterion("isTrue between", value1, value2, "istrue");
             return (Criteria) this;
         }
 
-        public Criteria andPracticeIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("practice_id not between", value1, value2, "practiceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreIsNull() {
-            addCriterion("score is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreIsNotNull() {
-            addCriterion("score is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreEqualTo(Integer value) {
-            addCriterion("score =", value, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreNotEqualTo(Integer value) {
-            addCriterion("score <>", value, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreGreaterThan(Integer value) {
-            addCriterion("score >", value, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreGreaterThanOrEqualTo(Integer value) {
-            addCriterion("score >=", value, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreLessThan(Integer value) {
-            addCriterion("score <", value, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreLessThanOrEqualTo(Integer value) {
-            addCriterion("score <=", value, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreIn(List<Integer> values) {
-            addCriterion("score in", values, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreNotIn(List<Integer> values) {
-            addCriterion("score not in", values, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreBetween(Integer value1, Integer value2) {
-            addCriterion("score between", value1, value2, "score");
-            return (Criteria) this;
-        }
-
-        public Criteria andScoreNotBetween(Integer value1, Integer value2) {
-            addCriterion("score not between", value1, value2, "score");
+        public Criteria andIstrueNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("isTrue not between", value1, value2, "istrue");
             return (Criteria) this;
         }
 

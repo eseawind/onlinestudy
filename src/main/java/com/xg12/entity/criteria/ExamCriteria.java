@@ -1,16 +1,16 @@
-package com.xg12.entity;
+package com.xg12.entity.criteria;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExamTopicCriteria {
+public class ExamCriteria {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ExamTopicCriteria() {
+    public ExamCriteria() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -164,123 +164,73 @@ public class ExamTopicCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdIsNull() {
-            addCriterion("topic_id is null");
+        public Criteria andDescriptionIsNull() {
+            addCriterion("description is null");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdIsNotNull() {
-            addCriterion("topic_id is not null");
+        public Criteria andDescriptionIsNotNull() {
+            addCriterion("description is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdEqualTo(Integer value) {
-            addCriterion("topic_id =", value, "topicId");
+        public Criteria andDescriptionEqualTo(String value) {
+            addCriterion("description =", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdNotEqualTo(Integer value) {
-            addCriterion("topic_id <>", value, "topicId");
+        public Criteria andDescriptionNotEqualTo(String value) {
+            addCriterion("description <>", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdGreaterThan(Integer value) {
-            addCriterion("topic_id >", value, "topicId");
+        public Criteria andDescriptionGreaterThan(String value) {
+            addCriterion("description >", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("topic_id >=", value, "topicId");
+        public Criteria andDescriptionGreaterThanOrEqualTo(String value) {
+            addCriterion("description >=", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdLessThan(Integer value) {
-            addCriterion("topic_id <", value, "topicId");
+        public Criteria andDescriptionLessThan(String value) {
+            addCriterion("description <", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdLessThanOrEqualTo(Integer value) {
-            addCriterion("topic_id <=", value, "topicId");
+        public Criteria andDescriptionLessThanOrEqualTo(String value) {
+            addCriterion("description <=", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdIn(List<Integer> values) {
-            addCriterion("topic_id in", values, "topicId");
+        public Criteria andDescriptionLike(String value) {
+            addCriterion("description like", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdNotIn(List<Integer> values) {
-            addCriterion("topic_id not in", values, "topicId");
+        public Criteria andDescriptionNotLike(String value) {
+            addCriterion("description not like", value, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdBetween(Integer value1, Integer value2) {
-            addCriterion("topic_id between", value1, value2, "topicId");
+        public Criteria andDescriptionIn(List<String> values) {
+            addCriterion("description in", values, "description");
             return (Criteria) this;
         }
 
-        public Criteria andTopicIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("topic_id not between", value1, value2, "topicId");
+        public Criteria andDescriptionNotIn(List<String> values) {
+            addCriterion("description not in", values, "description");
             return (Criteria) this;
         }
 
-        public Criteria andSequenceIsNull() {
-            addCriterion("sequence is null");
+        public Criteria andDescriptionBetween(String value1, String value2) {
+            addCriterion("description between", value1, value2, "description");
             return (Criteria) this;
         }
 
-        public Criteria andSequenceIsNotNull() {
-            addCriterion("sequence is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceEqualTo(Integer value) {
-            addCriterion("sequence =", value, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceNotEqualTo(Integer value) {
-            addCriterion("sequence <>", value, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceGreaterThan(Integer value) {
-            addCriterion("sequence >", value, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sequence >=", value, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceLessThan(Integer value) {
-            addCriterion("sequence <", value, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceLessThanOrEqualTo(Integer value) {
-            addCriterion("sequence <=", value, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceIn(List<Integer> values) {
-            addCriterion("sequence in", values, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceNotIn(List<Integer> values) {
-            addCriterion("sequence not in", values, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceBetween(Integer value1, Integer value2) {
-            addCriterion("sequence between", value1, value2, "sequence");
-            return (Criteria) this;
-        }
-
-        public Criteria andSequenceNotBetween(Integer value1, Integer value2) {
-            addCriterion("sequence not between", value1, value2, "sequence");
+        public Criteria andDescriptionNotBetween(String value1, String value2) {
+            addCriterion("description not between", value1, value2, "description");
             return (Criteria) this;
         }
     }

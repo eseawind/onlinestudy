@@ -1,8 +1,10 @@
 package com.xg12.dao;
 
 import com.xg12.entity.Student;
-import com.xg12.entity.StudentCriteria;
+import com.xg12.entity.criteria.StudentCriteria;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface StudentMapper {
