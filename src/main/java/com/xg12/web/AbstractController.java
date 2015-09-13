@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 /**
- * 抽象的Controller
- */
+--------------------------个人声明-----------------------------
+* @Project: onlinestudy
+* @File: AbstractController.java
+* @Date: 2015年9月12日 下午5:45:51
+* @Author: ZHUANGZHIXUAN 
+* 抽象的Controller
+*/
 public abstract class AbstractController {
 	
 	private final static Logger logger = LoggerFactory.getLogger(AbstractController.class);
