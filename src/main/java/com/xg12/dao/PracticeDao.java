@@ -1,20 +1,12 @@
 package com.xg12.dao;
 
-import com.xg12.entity.Practice;
-import com.xg12.entity.criteria.PracticeCriteria;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
- * --------------------------个人声明-----------------------------
- * 
- * @Project: onlinestudy
- * @File: PracticeDao.java
- * @Date: 2015年9月12日 下午5:27:10
- * @Author: ZHUANGZHIXUAN
- */
+import com.xg12.entity.Practice;
+import com.xg12.entity.PracticeCriteria;
+
 public interface PracticeDao {
 	int countByExample(PracticeCriteria example);
 

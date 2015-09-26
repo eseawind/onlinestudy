@@ -1,43 +1,43 @@
 package com.xg12.entity;
 
 public class Student {
-    private Integer studentId;
+	private Integer studentId;
 
-    private Integer no;
+	private Integer no;
 
-    private Integer userId;
+	private Integer userId;
 
-    private String name;
+	private String name;
 
-    public Integer getStudentId() {
-        return studentId;
-    }
+	public Integer getStudentId() {
+		return studentId;
+	}
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
+	}
 
-    public Integer getNo() {
-        return no;
-    }
+	public Integer getNo() {
+		return no;
+	}
 
-    public void setNo(Integer no) {
-        this.no = no;
-    }
+	public void setNo(Integer no) {
+		this.no = no;
+	}
 
-    public Integer getUserId() {
-        return userId;
-    }
+	public Integer getUserId() {
+		return userId;
+	}
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 }

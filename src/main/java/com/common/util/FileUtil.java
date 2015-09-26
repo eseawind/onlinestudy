@@ -18,7 +18,7 @@ import com.common.exception.AppException;
 
 public class FileUtil {
 	
-	private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
+	private final static Logger logger = LoggerFactory.getLogger(FileUtil.class);
 	
 	public static String copy(String sourcePath, String destinationPath){
 		//判断参数是否为空

@@ -1,19 +1,12 @@
 package com.xg12.dao;
 
-import com.xg12.entity.CourseExam;
-import com.xg12.entity.criteria.CourseExamCriteria;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
---------------------------个人声明-----------------------------
-* @Project: onlinestudy
-* @File: CourseExamDao.java
-* @Date: 2015年9月12日 下午5:26:45
-* @Author: ZHUANGZHIXUAN 
-*/
+import com.xg12.entity.CourseExam;
+import com.xg12.entity.CourseExamCriteria;
+
 public interface CourseExamDao {
 	int countByExample(CourseExamCriteria example);
 

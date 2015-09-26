@@ -1,20 +1,12 @@
 package com.xg12.dao;
 
-import com.xg12.entity.TopicAnswer;
-import com.xg12.entity.criteria.TopicAnswerCriteria;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
- * --------------------------个人声明-----------------------------
- * 
- * @Project: onlinestudy
- * @File: TopicAnswerDao.java
- * @Date: 2015年9月12日 下午5:28:28
- * @Author: ZHUANGZHIXUAN
- */
+import com.xg12.entity.TopicAnswer;
+import com.xg12.entity.TopicAnswerCriteria;
+
 public interface TopicAnswerDao {
 	int countByExample(TopicAnswerCriteria example);
 

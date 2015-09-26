@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xg12.dao.PracticeAnswerMapper">
-  <resultMap id="BaseResultMap" type="com.xg12.entity.PracticeAnswer">
-    <result column="topic_id" jdbcType="INTEGER" property="topicId" />
-    <result column="practice_id" jdbcType="INTEGER" property="practiceId" />
-    <result column="score" jdbcType="INTEGER" property="score" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="sequence" jdbcType="INTEGER" property="sequence" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xg12.dao.PracticeAnswerMapper" >
+  <resultMap id="BaseResultMap" type="com.xg12.entity.PracticeAnswer" >
+    <result column="topic_id" property="topicId" jdbcType="INTEGER" />
+    <result column="practice_id" property="practiceId" jdbcType="INTEGER" />
+    <result column="score" property="score" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="sequence" property="sequence" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -37,25 +37,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -66,622 +66,109 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     topic_id, practice_id, score, content, sequence
   </sql>
-  <select id="selectByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.PracticeAnswerCriteria" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from t_practice_answer
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria">
+  <delete id="deleteByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria" >
     delete from t_practice_answer
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xg12.entity.PracticeAnswer">
+  <insert id="insert" parameterType="com.xg12.entity.PracticeAnswer" >
     insert into t_practice_answer (topic_id, practice_id, score, 
       content, sequence)
     values (#{topicId,jdbcType=INTEGER}, #{practiceId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
       #{content,jdbcType=VARCHAR}, #{sequence,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.xg12.entity.PracticeAnswer">
+  <insert id="insertSelective" parameterType="com.xg12.entity.PracticeAnswer" >
     insert into t_practice_answer
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="topicId != null" >
         topic_id,
       </if>
-      <if test="practiceId != null">
+      <if test="practiceId != null" >
         practice_id,
       </if>
-      <if test="score != null">
+      <if test="score != null" >
         score,
       </if>
-      <if test="content != null">
+      <if test="content != null" >
         content,
       </if>
-      <if test="sequence != null">
+      <if test="sequence != null" >
         sequence,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="topicId != null" >
         #{topicId,jdbcType=INTEGER},
       </if>
-      <if test="practiceId != null">
+      <if test="practiceId != null" >
         #{practiceId,jdbcType=INTEGER},
       </if>
-      <if test="score != null">
+      <if test="score != null" >
         #{score,jdbcType=INTEGER},
       </if>
-      <if test="content != null">
+      <if test="content != null" >
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="sequence != null">
+      <if test="sequence != null" >
         #{sequence,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria" resultType="java.lang.Integer" >
     select count(*) from t_practice_answer
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update t_practice_answer
-    <set>
-      <if test="record.topicId != null">
+    <set >
+      <if test="record.topicId != null" >
         topic_id = #{record.topicId,jdbcType=INTEGER},
       </if>
-      <if test="record.practiceId != null">
+      <if test="record.practiceId != null" >
         practice_id = #{record.practiceId,jdbcType=INTEGER},
       </if>
-      <if test="record.score != null">
+      <if test="record.score != null" >
         score = #{record.score,jdbcType=INTEGER},
       </if>
-      <if test="record.content != null">
+      <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.sequence != null">
+      <if test="record.sequence != null" >
         sequence = #{record.sequence,jdbcType=INTEGER},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update t_practice_answer
     set topic_id = #{record.topicId,jdbcType=INTEGER},
       practice_id = #{record.practiceId,jdbcType=INTEGER},
       score = #{record.score,jdbcType=INTEGER},
       content = #{record.content,jdbcType=VARCHAR},
       sequence = #{record.sequence,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <resultMap id="BaseResultMap" type="com.xg12.entity.PracticeAnswer">
-    <result column="topic_id" jdbcType="INTEGER" property="topicId" />
-    <result column="practice_id" jdbcType="INTEGER" property="practiceId" />
-    <result column="score" jdbcType="INTEGER" property="score" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="sequence" jdbcType="INTEGER" property="sequence" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    topic_id, practice_id, score, content, sequence
-  </sql>
-  <select id="selectByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <delete id="deleteByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria">
-    delete from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.xg12.entity.PracticeAnswer">
-    insert into t_practice_answer (topic_id, practice_id, score, 
-      content, sequence)
-    values (#{topicId,jdbcType=INTEGER}, #{practiceId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
-      #{content,jdbcType=VARCHAR}, #{sequence,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xg12.entity.PracticeAnswer">
-    insert into t_practice_answer
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
-        topic_id,
-      </if>
-      <if test="practiceId != null">
-        practice_id,
-      </if>
-      <if test="score != null">
-        score,
-      </if>
-      <if test="content != null">
-        content,
-      </if>
-      <if test="sequence != null">
-        sequence,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
-        #{topicId,jdbcType=INTEGER},
-      </if>
-      <if test="practiceId != null">
-        #{practiceId,jdbcType=INTEGER},
-      </if>
-      <if test="score != null">
-        #{score,jdbcType=INTEGER},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="sequence != null">
-        #{sequence,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.xg12.entity.PracticeAnswerCriteria" resultType="java.lang.Integer">
-    select count(*) from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update t_practice_answer
-    <set>
-      <if test="record.topicId != null">
-        topic_id = #{record.topicId,jdbcType=INTEGER},
-      </if>
-      <if test="record.practiceId != null">
-        practice_id = #{record.practiceId,jdbcType=INTEGER},
-      </if>
-      <if test="record.score != null">
-        score = #{record.score,jdbcType=INTEGER},
-      </if>
-      <if test="record.content != null">
-        content = #{record.content,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sequence != null">
-        sequence = #{record.sequence,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update t_practice_answer
-    set topic_id = #{record.topicId,jdbcType=INTEGER},
-      practice_id = #{record.practiceId,jdbcType=INTEGER},
-      score = #{record.score,jdbcType=INTEGER},
-      content = #{record.content,jdbcType=VARCHAR},
-      sequence = #{record.sequence,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <resultMap id="BaseResultMap" type="com.xg12.entity.PracticeAnswer">
-    <result column="topic_id" jdbcType="INTEGER" property="topicId" />
-    <result column="practice_id" jdbcType="INTEGER" property="practiceId" />
-    <result column="score" jdbcType="INTEGER" property="score" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="sequence" jdbcType="INTEGER" property="sequence" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    topic_id, practice_id, score, content, sequence
-  </sql>
-  <select id="selectByExample" parameterType="com.xg12.entity.PracticeAnswerExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <delete id="deleteByExample" parameterType="com.xg12.entity.PracticeAnswerExample">
-    delete from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.xg12.entity.PracticeAnswer">
-    insert into t_practice_answer (topic_id, practice_id, score, 
-      content, sequence)
-    values (#{topicId,jdbcType=INTEGER}, #{practiceId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
-      #{content,jdbcType=VARCHAR}, #{sequence,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xg12.entity.PracticeAnswer">
-    insert into t_practice_answer
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
-        topic_id,
-      </if>
-      <if test="practiceId != null">
-        practice_id,
-      </if>
-      <if test="score != null">
-        score,
-      </if>
-      <if test="content != null">
-        content,
-      </if>
-      <if test="sequence != null">
-        sequence,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
-        #{topicId,jdbcType=INTEGER},
-      </if>
-      <if test="practiceId != null">
-        #{practiceId,jdbcType=INTEGER},
-      </if>
-      <if test="score != null">
-        #{score,jdbcType=INTEGER},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="sequence != null">
-        #{sequence,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.xg12.entity.PracticeAnswerExample" resultType="java.lang.Integer">
-    select count(*) from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update t_practice_answer
-    <set>
-      <if test="record.topicId != null">
-        topic_id = #{record.topicId,jdbcType=INTEGER},
-      </if>
-      <if test="record.practiceId != null">
-        practice_id = #{record.practiceId,jdbcType=INTEGER},
-      </if>
-      <if test="record.score != null">
-        score = #{record.score,jdbcType=INTEGER},
-      </if>
-      <if test="record.content != null">
-        content = #{record.content,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sequence != null">
-        sequence = #{record.sequence,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update t_practice_answer
-    set topic_id = #{record.topicId,jdbcType=INTEGER},
-      practice_id = #{record.practiceId,jdbcType=INTEGER},
-      score = #{record.score,jdbcType=INTEGER},
-      content = #{record.content,jdbcType=VARCHAR},
-      sequence = #{record.sequence,jdbcType=INTEGER}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <resultMap id="BaseResultMap" type="com.xg12.entity.PracticeAnswer">
-    <result column="topic_id" jdbcType="INTEGER" property="topicId" />
-    <result column="practice_id" jdbcType="INTEGER" property="practiceId" />
-    <result column="score" jdbcType="INTEGER" property="score" />
-    <result column="content" jdbcType="VARCHAR" property="content" />
-    <result column="sequence" jdbcType="INTEGER" property="sequence" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    topic_id, practice_id, score, content, sequence
-  </sql>
-  <select id="selectByExample" parameterType="com.xg12.entity.PracticeAnswerExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <delete id="deleteByExample" parameterType="com.xg12.entity.PracticeAnswerExample">
-    delete from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.xg12.entity.PracticeAnswer">
-    insert into t_practice_answer (topic_id, practice_id, score, 
-      content, sequence)
-    values (#{topicId,jdbcType=INTEGER}, #{practiceId,jdbcType=INTEGER}, #{score,jdbcType=INTEGER}, 
-      #{content,jdbcType=VARCHAR}, #{sequence,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xg12.entity.PracticeAnswer">
-    insert into t_practice_answer
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
-        topic_id,
-      </if>
-      <if test="practiceId != null">
-        practice_id,
-      </if>
-      <if test="score != null">
-        score,
-      </if>
-      <if test="content != null">
-        content,
-      </if>
-      <if test="sequence != null">
-        sequence,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="topicId != null">
-        #{topicId,jdbcType=INTEGER},
-      </if>
-      <if test="practiceId != null">
-        #{practiceId,jdbcType=INTEGER},
-      </if>
-      <if test="score != null">
-        #{score,jdbcType=INTEGER},
-      </if>
-      <if test="content != null">
-        #{content,jdbcType=VARCHAR},
-      </if>
-      <if test="sequence != null">
-        #{sequence,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.xg12.entity.PracticeAnswerExample" resultType="java.lang.Integer">
-    select count(*) from t_practice_answer
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update t_practice_answer
-    <set>
-      <if test="record.topicId != null">
-        topic_id = #{record.topicId,jdbcType=INTEGER},
-      </if>
-      <if test="record.practiceId != null">
-        practice_id = #{record.practiceId,jdbcType=INTEGER},
-      </if>
-      <if test="record.score != null">
-        score = #{record.score,jdbcType=INTEGER},
-      </if>
-      <if test="record.content != null">
-        content = #{record.content,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sequence != null">
-        sequence = #{record.sequence,jdbcType=INTEGER},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update t_practice_answer
-    set topic_id = #{record.topicId,jdbcType=INTEGER},
-      practice_id = #{record.practiceId,jdbcType=INTEGER},
-      score = #{record.score,jdbcType=INTEGER},
-      content = #{record.content,jdbcType=VARCHAR},
-      sequence = #{record.sequence,jdbcType=INTEGER}
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>

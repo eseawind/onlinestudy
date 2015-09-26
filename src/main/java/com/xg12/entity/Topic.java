@@ -1,43 +1,53 @@
 package com.xg12.entity;
 
 public class Topic {
-    private Integer topicId;
+	private Integer topicId;
 
-    private Integer topicTypeId;
+	private Integer topicTypeId;
 
-    private String content;
+	private Integer sectionId;
 
-    private Integer score;
+	private String content;
 
-    public Integer getTopicId() {
-        return topicId;
-    }
+	private Integer score;
 
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
-    }
+	public Integer getTopicId() {
+		return topicId;
+	}
 
-    public Integer getTopicTypeId() {
-        return topicTypeId;
-    }
+	public void setTopicId(Integer topicId) {
+		this.topicId = topicId;
+	}
 
-    public void setTopicTypeId(Integer topicTypeId) {
-        this.topicTypeId = topicTypeId;
-    }
+	public Integer getTopicTypeId() {
+		return topicTypeId;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setTopicTypeId(Integer topicTypeId) {
+		this.topicTypeId = topicTypeId;
+	}
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
+	public Integer getSectionId() {
+		return sectionId;
+	}
 
-    public Integer getScore() {
-        return score;
-    }
+	public void setSectionId(Integer sectionId) {
+		this.sectionId = sectionId;
+	}
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content == null ? null : content.trim();
+	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
+	}
 }

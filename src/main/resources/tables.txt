@@ -9,6 +9,7 @@ t_practice
 t_practice_answer
 t_role
 t_role_operation
+t_section
 t_student
 t_student_class
 t_teacher

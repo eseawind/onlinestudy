@@ -1,19 +1,12 @@
 package com.xg12.dao;
 
-import com.xg12.entity.ExamTopic;
-import com.xg12.entity.criteria.ExamTopicCriteria;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
---------------------------个人声明-----------------------------
-* @Project: onlinestudy
-* @File: ExamTopicDao.java
-* @Date: 2015年9月12日 下午5:26:54
-* @Author: ZHUANGZHIXUAN 
-*/
+import com.xg12.entity.ExamTopic;
+import com.xg12.entity.ExamTopicCriteria;
+
 public interface ExamTopicDao {
 	int countByExample(ExamTopicCriteria example);
 

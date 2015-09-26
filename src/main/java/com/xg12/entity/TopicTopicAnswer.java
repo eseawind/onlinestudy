@@ -1,23 +1,23 @@
 package com.xg12.entity;
 
 public class TopicTopicAnswer {
-    private Integer topicId;
+	private Integer topicId;
 
-    private Integer topicAnswerId;
+	private Integer topicAnswerId;
 
-    public Integer getTopicId() {
-        return topicId;
-    }
+	public Integer getTopicId() {
+		return topicId;
+	}
 
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
-    }
+	public void setTopicId(Integer topicId) {
+		this.topicId = topicId;
+	}
 
-    public Integer getTopicAnswerId() {
-        return topicAnswerId;
-    }
+	public Integer getTopicAnswerId() {
+		return topicAnswerId;
+	}
 
-    public void setTopicAnswerId(Integer topicAnswerId) {
-        this.topicAnswerId = topicAnswerId;
-    }
+	public void setTopicAnswerId(Integer topicAnswerId) {
+		this.topicAnswerId = topicAnswerId;
+	}
 }

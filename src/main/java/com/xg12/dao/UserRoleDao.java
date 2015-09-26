@@ -1,20 +1,12 @@
 package com.xg12.dao;
 
-import com.xg12.entity.UserRole;
-import com.xg12.entity.criteria.UserRoleCriteria;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
- * --------------------------个人声明-----------------------------
- * 
- * @Project: onlinestudy
- * @File: UserRoleDao.java
- * @Date: 2015年9月12日 下午5:29:07
- * @Author: ZHUANGZHIXUAN
- */
+import com.xg12.entity.UserRole;
+import com.xg12.entity.UserRoleCriteria;
+
 public interface UserRoleDao {
 	int countByExample(UserRoleCriteria example);
 

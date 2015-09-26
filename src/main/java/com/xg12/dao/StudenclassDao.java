@@ -1,20 +1,12 @@
 package com.xg12.dao;
 
-import com.xg12.entity.Studenclass;
-import com.xg12.entity.criteria.StudenclassCriteria;
-
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-/**
- * --------------------------个人声明-----------------------------
- * 
- * @Project: onlinestudy
- * @File: StudenclassDao.java
- * @Date: 2015年9月12日 下午5:27:35
- * @Author: ZHUANGZHIXUAN
- */
+import com.xg12.entity.Studenclass;
+import com.xg12.entity.StudenclassCriteria;
+
 public interface StudenclassDao {
 	int countByExample(StudenclassCriteria example);
 
