@@ -1,6 +1,6 @@
 package com.xg12.entity;
 
-public class Studenclass {
+public class StudentClass {
 	private Integer studentId;
 
 	private Integer classId;

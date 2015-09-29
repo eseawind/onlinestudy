@@ -3,14 +3,14 @@ package com.xg12.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudenclassCriteria {
+public class StudentClassCriteria {
 	protected String orderByClause;
 
 	protected boolean distinct;
 
 	protected List<Criteria> oredCriteria;
 
-	public StudenclassCriteria() {
+	public StudentClassCriteria() {
 		oredCriteria = new ArrayList<Criteria>();
 	}
 
