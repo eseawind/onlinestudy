@@ -22,11 +22,9 @@ public interface ExamDao {
 
 	Exam selectByPrimaryKey(Integer examId);
 
-	int updateByExampleSelective(@Param("record") Exam record,
-			@Param("example") ExamCriteria example);
+	int updateByExampleSelective(@Param("record") Exam record, @Param("example") ExamCriteria example);
 
-	int updateByExample(@Param("record") Exam record,
-			@Param("example") ExamCriteria example);
+	int updateByExample(@Param("record") Exam record, @Param("example") ExamCriteria example);
 
 	int updateByPrimaryKeySelective(Exam record);
 

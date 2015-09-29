@@ -1,34 +1,30 @@
 package com.xg12.dao;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.xg12.entity.Topic;
 import com.xg12.entity.TopicCriteria;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface TopicDao {
-	int countByExample(TopicCriteria example);
+    int countByExample(TopicCriteria example);
 
-	int deleteByExample(TopicCriteria example);
+    int deleteByExample(TopicCriteria example);
 
-	int deleteByPrimaryKey(Integer topicId);
+    int deleteByPrimaryKey(Integer topicId);
 
-	int insert(Topic record);
+    int insert(Topic record);
 
-	int insertSelective(Topic record);
+    int insertSelective(Topic record);
 
-	List<Topic> selectByExample(TopicCriteria example);
+    List<Topic> selectByExample(TopicCriteria example);
 
-	Topic selectByPrimaryKey(Integer topicId);
+    Topic selectByPrimaryKey(Integer topicId);
 
-	int updateByExampleSelective(@Param("record") Topic record,
-			@Param("example") TopicCriteria example);
+    int updateByExampleSelective(@Param("record") Topic record, @Param("example") TopicCriteria example);
 
-	int updateByExample(@Param("record") Topic record,
-			@Param("example") TopicCriteria example);
+    int updateByExample(@Param("record") Topic record, @Param("example") TopicCriteria example);
 
-	int updateByPrimaryKeySelective(Topic record);
+    int updateByPrimaryKeySelective(Topic record);
 
-	int updateByPrimaryKey(Topic record);
+    int updateByPrimaryKey(Topic record);
 }
