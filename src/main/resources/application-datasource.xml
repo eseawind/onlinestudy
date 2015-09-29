@@ -7,6 +7,20 @@
 			    http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 			    http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+		
+		<!-- 数据源配置，使用c3p0作为数据库连接池 -->
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="driverClass" value="${jdbc.driver}" />
+			<property name="jdbcUrl" value="${jdbc.url}" />
+			<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+			<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+			<property name="idleConnectionTestPeriod" value="30" />
+			<property name="acquireIncrement" value="0" />
+			<property name="maxStatements" value="0" />
+			<property name="maxStatementsPerConnection" value="0" />
+			<property name="user" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+		</bean>
 	
 	
 	<!-- MyBatis sqlSessionFactory -->
@@ -26,4 +40,7 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+	
+	<!-- 自动扫描的包名 -->
+    <context:component-scan base-package="com.xg12.manager"/>
 </beans>
