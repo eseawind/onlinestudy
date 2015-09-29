@@ -39,7 +39,9 @@ public class TestTableName {
 				
 				sb.append(domainName + "\"/>");
 				
-				System.out.println(sb.toString());
+//				System.out.println(sb.toString());
+				
+				
 			}
 		}catch(Exception e){
 			e.printStackTrace();

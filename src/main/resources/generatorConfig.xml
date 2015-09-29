@@ -41,27 +41,6 @@
 			targetProject="C:\Users\Mortimer\git\onlinestudy\src\main\java" type="XMLMAPPER" />
 
 		<!-- 对应的对应数据库中的表，可以到com.xg12.test.testTableName中生成一下文件 -->
-		<table schema="t_class" tableName="t_class" domainObjectName="Class"/>
-		<table schema="t_class_course" tableName="t_class_course" domainObjectName="ClassCourse"/>
-		<table schema="t_course" tableName="t_course" domainObjectName="Course"/>
-		<table schema="t_course_exam" tableName="t_course_exam" domainObjectName="CourseExam"/>
-		<table schema="t_exam" tableName="t_exam" domainObjectName="Exam"/>
-		<table schema="t_exam_topic" tableName="t_exam_topic" domainObjectName="ExamTopic"/>
-		<table schema="t_operation" tableName="t_operation" domainObjectName="Operation"/>
-		<table schema="t_practice" tableName="t_practice" domainObjectName="Practice"/>
-		<table schema="t_practice_answer" tableName="t_practice_answer" domainObjectName="PracticeAnswer"/>
-		<table schema="t_role" tableName="t_role" domainObjectName="Role"/>
-		<table schema="t_role_operation" tableName="t_role_operation" domainObjectName="RoleOperation"/>
-		<table schema="t_student" tableName="t_student" domainObjectName="Student"/>
-		<table schema="t_student_class" tableName="t_student_class" domainObjectName="Studenclass"/>
-		<table schema="t_teacher" tableName="t_teacher" domainObjectName="Teacher"/>
-		<table schema="t_teacher_course" tableName="t_teacher_course" domainObjectName="TeacherCourse"/>
-		<table schema="t_term" tableName="t_term" domainObjectName="Term"/>
 		<table schema="t_topic" tableName="t_topic" domainObjectName="Topic"/>
-		<table schema="t_topic_answer" tableName="t_topic_answer" domainObjectName="TopicAnswer"/>
-		<table schema="t_topic_topic_answer" tableName="t_topic_topic_answer" domainObjectName="TopicTopicAnswer"/>
-		<table schema="t_topic_type" tableName="t_topic_type" domainObjectName="TopicType"/>
-		<table schema="t_user" tableName="t_user" domainObjectName="User"/>
-		<table schema="t_user_role" tableName="t_user_role" domainObjectName="UserRole"/>
 	</context>
 </generatorConfiguration>

@@ -15,12 +15,18 @@ public class TestRename {
 	
 	public static void main(String[] args){
 		
-		List<File> childrenFile = FileUtil.getChildrenFile("src/main/java/com/xg12/dao/");
+		List<File> childrenFile = FileUtil.getChildrenFile("src/main/java/com/xg12/manager/");
 		
 		for(File file : childrenFile){
-			File renameFile = new File(file.getAbsolutePath().replaceAll("Mapper", "Dao"));
-			// rename
-			file.renameTo(renameFile);
+			System.out.println("@Autowired");
+			
+			String name = file.getName().replaceAll(".java", "");
+			
+			System.out.print("private " + name + " ");
+			name = (name.charAt(0) + "").toLowerCase() + name.substring(1);
+			System.out.print(name + ";");
+			
+			System.out.println();
 		}
 	}
 }
