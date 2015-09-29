@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xg12.dao.OperationMapper" >
+<mapper namespace="com.xg12.dao.OperationDao" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.Operation" >
     <id column="operation_id" property="operationId" jdbcType="INTEGER" />
     <result column="parent_operation_id" property="parentOperationId" jdbcType="INTEGER" />

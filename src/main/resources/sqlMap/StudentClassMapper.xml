@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xg12.dao.StudenclassMapper" >
-  <resultMap id="BaseResultMap" type="com.xg12.entity.Studenclass" >
+<mapper namespace="com.xg12.dao.StudentClassDao" >
+  <resultMap id="BaseResultMap" type="com.xg12.entity.StudentClass" >
     <result column="student_id" property="studentId" jdbcType="INTEGER" />
     <result column="class_id" property="classId" jdbcType="INTEGER" />
   </resultMap>
@@ -66,7 +66,7 @@
   <sql id="Base_Column_List" >
     student_id, class_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.StudenclassCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.StudentClassCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -80,17 +80,17 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xg12.entity.StudenclassCriteria" >
+  <delete id="deleteByExample" parameterType="com.xg12.entity.StudentClassCriteria" >
     delete from t_student_class
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xg12.entity.Studenclass" >
+  <insert id="insert" parameterType="com.xg12.entity.StudentClass" >
     insert into t_student_class (student_id, class_id)
     values (#{studentId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.xg12.entity.Studenclass" >
+  <insert id="insertSelective" parameterType="com.xg12.entity.StudentClass" >
     insert into t_student_class
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="studentId != null" >
@@ -109,7 +109,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xg12.entity.StudenclassCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.xg12.entity.StudentClassCriteria" resultType="java.lang.Integer" >
     select count(*) from t_student_class
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
