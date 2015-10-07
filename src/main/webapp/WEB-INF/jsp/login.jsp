@@ -5,9 +5,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>在线学习系统</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$("#loginForm").submit(function(){
+			return false;
+		});
+
+		$("#submit").click(function() {
+			var username = $("input[name='username']").val();
+			var password = $("input[name='password']").val();
+			// 此处有待改进-----使用其他方式获取form
+			var url = $("#loginForm").attr("action");
+			
+			$.ajax({
+				url: url,
+				data:{
+					username:username,
+					password:username
+				},
+				type:'post',
+				dataType:'json',
+				success:function(data){
+					alertMessage($(".container"), data);
+					// TODO 间隔几秒跳转
+					location.href="${contextPath}/index";
+				},
+				error:{
+				}
+			})
+		});
+	});
+</script>
 </head>
 <body>
-	<h1>Hello, World!</h1>
+	<div class="container">
+		<form id="loginForm" class="form-signin" role="form" action="${contextPath}/login"
+			method="post">
+			<h2 class="form-signin-heading">欢迎登录</h2>
+			<input type="text" name="username" class="form-control" placeholder="用户名" required autofocu>
+			<input type="password" name="password" class="form-control" placeholder="密码" required autofocu>
+			<br/>
+			<button id="submit" class="btn btn-lg btn-primary btn-block">登录</button>
+		</form>
+	</div>
 </body>
 </html>

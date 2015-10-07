@@ -31,4 +31,9 @@ public interface UserManager {
 	int updateByPrimaryKeySelective(User record);
 
 	int updateByPrimaryKey(User record);
+	
+	User getUniqueUserByUserName(String username);
+	
+	User login(String username, String password);
+	
 }

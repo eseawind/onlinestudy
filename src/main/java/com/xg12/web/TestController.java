@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,7 +20,7 @@ import com.xg12.entity.User;
 * @Author: ZHUANGZHIXUAN 
 */
 @Controller
-public class TestController extends AbstractController{
+public class TestController extends BaseController{
 	
 	/** 日志 */
 	private static Logger logger = LoggerFactory.getLogger(TestController.class);
@@ -40,10 +41,18 @@ public class TestController extends AbstractController{
 	
 	@RequestMapping("test/save/user")
 	public void testSaveUser(ModelMap modelMap){
-		User user = userManager.selectByPrimaryKey(1);
+		User user = new User();
+		user.setUsername("lalala");
 		user.setPassword("lalala");
-		userManager.updateByPrimaryKey(user);
+		userManager.insert(user);
 		logger.info("userDao :{}", userManager);
 		logger.info("test save user");
+		modelMap.put("user", user);
+	}
+	
+	@RequestMapping(value="test/user/{userId}/update")
+	public void testUpdateUser(@PathVariable(value="userId")Integer userId){
+		logger.info("userId:{}", userId);
+		
 	}
 }

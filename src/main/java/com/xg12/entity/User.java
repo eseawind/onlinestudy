@@ -6,7 +6,7 @@ public class User {
 	private String username;
 
 	private String password;
-
+	
 	public Integer getUserId() {
 		return userId;
 	}
@@ -30,4 +30,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password == null ? null : password.trim();
 	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", username=" + username
+				+ ", password=" + password + "]";
+	}
+	
 }

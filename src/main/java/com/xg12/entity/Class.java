@@ -30,4 +30,11 @@ public class Class {
 	public void setDescription(String description) {
 		this.description = description == null ? null : description.trim();
 	}
+
+	@Override
+	public String toString() {
+		return "Class [classId=" + classId + ", termId=" + termId
+				+ ", description=" + description + "]";
+	}
+	
 }

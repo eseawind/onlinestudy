@@ -310,7 +310,7 @@ create table t_topic_type
 create table t_user
 (
    user_id              int not null auto_increment,
-   username             varchar(30),
+   username             varchar(30) unique,
    password             varchar(30),
    primary key (user_id)
 )
