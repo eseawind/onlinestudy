@@ -52,11 +52,7 @@ public abstract class BaseController {
 	@Autowired
 	protected SectionManager sectionManager;
 	@Autowired
-	protected StudentManager studentManager;
-	@Autowired
 	protected TeacherCourseManager teacherCourseManager;
-	@Autowired
-	protected TeacherManager teacherManager;
 	@Autowired
 	protected TermManager termManager;
 	@Autowired

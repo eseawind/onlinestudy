@@ -46,17 +46,21 @@ public class LoginController extends BaseController {
 		}
 		
 		// 通过username筛选用户
-		User user = userManager.login(username, password);
+		User user = userManager.getUniqueUserByUserName(username);
 		if(user != null){
-			responseMap.put(JSON_SIGN, true);
-			responseMap.put(JSON_MESSAGE, "登录成功");
-			
-			// 将用户存到session中
-			httpSession.setAttribute(SESSION_USER, user);
-			logger.info("用户名：{}，登录系统:{}", user.getUsername(), new Date());
+			if(password.equals(user.getPassword())){
+				responseMap.put(JSON_SIGN, true);
+				responseMap.put(JSON_MESSAGE, "登录成功");
+				// 将用户存到session中
+				httpSession.setAttribute(SESSION_USER, user);
+				logger.info("用户名：{}，登录系统:{}", user.getUsername(), new Date());
+			}else{
+				responseMap.put(JSON_SIGN, false);
+				responseMap.put(JSON_MESSAGE, "用户名或密码错误!");
+			}
 		}else{
-			responseMap.put(JSON_SIGN, "false");
-			responseMap.put(JSON_MESSAGE, "用户名或者密码错误!");
+			responseMap.put(JSON_SIGN, false);
+			responseMap.put(JSON_MESSAGE, "该用户名不存在！");
 		}
 		
 		// 返回JSON
