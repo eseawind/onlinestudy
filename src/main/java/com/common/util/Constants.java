@@ -9,6 +9,6 @@ public class Constants {
 	public final static String JSON_MESSAGE = "message";
 	
 	/** session存储的user的key */
-	public final static String SESSION_USER = "currentUser";
+	public final static String SESSION_USER = "user";
 
 }
