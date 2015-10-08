@@ -1,40 +1,53 @@
 package com.xg12.entity;
 
 public class User {
-	private Integer userId;
+    private Integer userId;
 
-	private String username;
+    private String username;
 
-	private String password;
-	
-	public Integer getUserId() {
-		return userId;
-	}
+    private String password;
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
+    private String name;
 
-	public String getUsername() {
-		return username;
-	}
+    private Boolean stuts;
 
-	public void setUsername(String username) {
-		this.username = username == null ? null : username.trim();
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
-	public void setPassword(String password) {
-		this.password = password == null ? null : password.trim();
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", username=" + username
-				+ ", password=" + password + "]";
-	}
-	
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public Boolean getStuts() {
+        return stuts;
+    }
+
+    public void setStuts(Boolean stuts) {
+        this.stuts = stuts;
+    }
 }

@@ -1,23 +1,23 @@
 package com.xg12.entity;
 
 public class StudentClass {
-	private Integer studentId;
+    private Integer classId;
 
-	private Integer classId;
+    private Integer userId;
 
-	public Integer getStudentId() {
-		return studentId;
-	}
+    public Integer getClassId() {
+        return classId;
+    }
 
-	public void setStudentId(Integer studentId) {
-		this.studentId = studentId;
-	}
+    public void setClassId(Integer classId) {
+        this.classId = classId;
+    }
 
-	public Integer getClassId() {
-		return classId;
-	}
+    public Integer getUserId() {
+        return userId;
+    }
 
-	public void setClassId(Integer classId) {
-		this.classId = classId;
-	}
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }
