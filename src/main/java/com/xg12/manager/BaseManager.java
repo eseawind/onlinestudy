@@ -16,9 +16,7 @@ import com.xg12.dao.RoleDao;
 import com.xg12.dao.RoleOperationDao;
 import com.xg12.dao.SectionDao;
 import com.xg12.dao.StudentClassDao;
-import com.xg12.dao.StudentDao;
 import com.xg12.dao.TeacherCourseDao;
-import com.xg12.dao.TeacherDao;
 import com.xg12.dao.TermDao;
 import com.xg12.dao.TopicAnswerDao;
 import com.xg12.dao.TopicDao;
@@ -64,11 +62,7 @@ public class BaseManager {
 	@Autowired
 	protected StudentClassDao studentClassDao;
 	@Autowired
-	protected StudentDao studentDao;
-	@Autowired
 	protected TeacherCourseDao teacherCourseDao;
-	@Autowired
-	protected TeacherDao teacherDao;
 	@Autowired
 	protected TermDao termDao;
 	@Autowired

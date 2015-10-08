@@ -34,6 +34,4 @@ public interface UserManager {
 	
 	User getUniqueUserByUserName(String username);
 	
-	User login(String username, String password);
-	
 }
