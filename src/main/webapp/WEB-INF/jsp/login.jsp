@@ -38,6 +38,12 @@
 		});
 	});
 </script>
+
+<style>
+	.container{
+		width:400px;
+	}
+</style>
 </head>
 <body>
 	<div class="container">
