@@ -3,8 +3,8 @@
 <mapper namespace="com.xg12.dao.PracticeDao" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.Practice" >
     <id column="practice_id" property="practiceId" jdbcType="INTEGER" />
-    <result column="student_id" property="studentId" jdbcType="INTEGER" />
     <result column="exam_id" property="examId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
     <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    practice_id, student_id, exam_id, start_time, end_time
+    practice_id, exam_id, user_id, start_time, end_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.PracticeCriteria" >
     select
@@ -100,9 +100,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xg12.entity.Practice" >
-    insert into t_practice (practice_id, student_id, exam_id, 
+    insert into t_practice (practice_id, exam_id, user_id, 
       start_time, end_time)
-    values (#{practiceId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, 
+    values (#{practiceId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
       #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.xg12.entity.Practice" >
@@ -111,11 +111,11 @@
       <if test="practiceId != null" >
         practice_id,
       </if>
-      <if test="studentId != null" >
-        student_id,
-      </if>
       <if test="examId != null" >
         exam_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
       </if>
       <if test="startTime != null" >
         start_time,
@@ -128,11 +128,11 @@
       <if test="practiceId != null" >
         #{practiceId,jdbcType=INTEGER},
       </if>
-      <if test="studentId != null" >
-        #{studentId,jdbcType=INTEGER},
-      </if>
       <if test="examId != null" >
         #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
       <if test="startTime != null" >
         #{startTime,jdbcType=TIMESTAMP},
@@ -154,11 +154,11 @@
       <if test="record.practiceId != null" >
         practice_id = #{record.practiceId,jdbcType=INTEGER},
       </if>
-      <if test="record.studentId != null" >
-        student_id = #{record.studentId,jdbcType=INTEGER},
-      </if>
       <if test="record.examId != null" >
         exam_id = #{record.examId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
       <if test="record.startTime != null" >
         start_time = #{record.startTime,jdbcType=TIMESTAMP},
@@ -174,8 +174,8 @@
   <update id="updateByExample" parameterType="map" >
     update t_practice
     set practice_id = #{record.practiceId,jdbcType=INTEGER},
-      student_id = #{record.studentId,jdbcType=INTEGER},
       exam_id = #{record.examId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
       start_time = #{record.startTime,jdbcType=TIMESTAMP},
       end_time = #{record.endTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -185,11 +185,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.xg12.entity.Practice" >
     update t_practice
     <set >
-      <if test="studentId != null" >
-        student_id = #{studentId,jdbcType=INTEGER},
-      </if>
       <if test="examId != null" >
         exam_id = #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
       <if test="startTime != null" >
         start_time = #{startTime,jdbcType=TIMESTAMP},
@@ -202,8 +202,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xg12.entity.Practice" >
     update t_practice
-    set student_id = #{studentId,jdbcType=INTEGER},
-      exam_id = #{examId,jdbcType=INTEGER},
+    set exam_id = #{examId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
       start_time = #{startTime,jdbcType=TIMESTAMP},
       end_time = #{endTime,jdbcType=TIMESTAMP}
     where practice_id = #{practiceId,jdbcType=INTEGER}

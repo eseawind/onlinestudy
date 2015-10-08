@@ -3,7 +3,7 @@
 <mapper namespace="com.xg12.dao.TeacherCourseDao" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.TeacherCourse" >
     <result column="course_id" property="courseId" jdbcType="INTEGER" />
-    <result column="teacher_id" property="teacherId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    course_id, teacher_id
+    course_id, user_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.TeacherCourseCriteria" >
     select
@@ -87,8 +87,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xg12.entity.TeacherCourse" >
-    insert into t_teacher_course (course_id, teacher_id)
-    values (#{courseId,jdbcType=INTEGER}, #{teacherId,jdbcType=INTEGER})
+    insert into t_teacher_course (course_id, user_id)
+    values (#{courseId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xg12.entity.TeacherCourse" >
     insert into t_teacher_course
@@ -96,16 +96,16 @@
       <if test="courseId != null" >
         course_id,
       </if>
-      <if test="teacherId != null" >
-        teacher_id,
+      <if test="userId != null" >
+        user_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="courseId != null" >
         #{courseId,jdbcType=INTEGER},
       </if>
-      <if test="teacherId != null" >
-        #{teacherId,jdbcType=INTEGER},
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -121,8 +121,8 @@
       <if test="record.courseId != null" >
         course_id = #{record.courseId,jdbcType=INTEGER},
       </if>
-      <if test="record.teacherId != null" >
-        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -132,7 +132,7 @@
   <update id="updateByExample" parameterType="map" >
     update t_teacher_course
     set course_id = #{record.courseId,jdbcType=INTEGER},
-      teacher_id = #{record.teacherId,jdbcType=INTEGER}
+      user_id = #{record.userId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xg12.dao.StudentClassDao" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.StudentClass" >
-    <result column="student_id" property="studentId" jdbcType="INTEGER" />
     <result column="class_id" property="classId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +64,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    student_id, class_id
+    class_id, user_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.StudentClassCriteria" >
     select
@@ -87,25 +87,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xg12.entity.StudentClass" >
-    insert into t_student_class (student_id, class_id)
-    values (#{studentId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER})
+    insert into t_student_class (class_id, user_id)
+    values (#{classId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xg12.entity.StudentClass" >
     insert into t_student_class
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="studentId != null" >
-        student_id,
-      </if>
       <if test="classId != null" >
         class_id,
       </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="studentId != null" >
-        #{studentId,jdbcType=INTEGER},
-      </if>
       <if test="classId != null" >
         #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -118,11 +118,11 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update t_student_class
     <set >
-      <if test="record.studentId != null" >
-        student_id = #{record.studentId,jdbcType=INTEGER},
-      </if>
       <if test="record.classId != null" >
         class_id = #{record.classId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -131,8 +131,8 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update t_student_class
-    set student_id = #{record.studentId,jdbcType=INTEGER},
-      class_id = #{record.classId,jdbcType=INTEGER}
+    set class_id = #{record.classId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
