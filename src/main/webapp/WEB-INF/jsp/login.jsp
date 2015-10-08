@@ -9,11 +9,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		$("#loginForm").submit(function(){
-			return false;
-		});
-
-		$("#submit").click(function() {
+		$("#loginForm").submit(function() {
 			var username = $("input[name='username']").val();
 			var password = $("input[name='password']").val();
 			// 此处有待改进-----使用其他方式获取form
@@ -23,18 +19,24 @@
 				url: url,
 				data:{
 					username:username,
-					password:username
+					password:password
 				},
 				type:'post',
 				dataType:'json',
 				success:function(data){
-					alertMessage($(".container"), data);
+					alertMessage($(".alertDiv"), data.successSign, data.message);
 					// TODO 间隔几秒跳转
-					location.href="${contextPath}/index";
+					if(data.successSign == true){
+						location.href="${contextPath}/index";
+					}
 				},
-				error:{
+				error:function(data){
+					alert($(".alertDiv"), false, "服务器发生错误，请稍后重试!");
 				}
 			})
+			
+			// 阻止表单提交
+			return false;
 		});
 	});
 </script>
@@ -47,6 +49,7 @@
 </head>
 <body>
 	<div class="container">
+		<div class="alertDiv"></div>
 		<form id="loginForm" class="form-signin" role="form" action="${contextPath}/login"
 			method="post">
 			<h2 class="form-signin-heading">欢迎登录</h2>

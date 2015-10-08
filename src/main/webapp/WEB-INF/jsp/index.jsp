@@ -21,7 +21,7 @@
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.username } <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">${user.name } <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="#">我的课程</a></li>
 					<li><a href="#">我的个人资料</a></li>
