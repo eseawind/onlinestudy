@@ -62,5 +62,14 @@ public class LoginController extends BaseController {
 		// 返回JSON
 		WebUtil.returnJson(response, JSONObject.fromObject(responseMap).toString());
 	}
+	
+	@RequestMapping("logout")
+	public String logout(HttpSession httpSession){
+		// 移除httpSession中的user
+		httpSession.removeAttribute(SESSION_USER);
+		
+		// 返回到登录页面
+		return "redirect:/login";
+	}
 
 }
