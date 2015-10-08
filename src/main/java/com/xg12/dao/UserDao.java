@@ -33,6 +33,4 @@ public interface UserDao {
 	int updateByPrimaryKey(User record);
 	
 	User getUniqueUserByUserName(String username);
-	
-	User login(@Param("username")String username, @Param("password")String password);
 }
