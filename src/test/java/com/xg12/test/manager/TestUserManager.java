@@ -35,11 +35,4 @@ public class TestUserManager extends TestBaseManager{
 		logger.info("user info:{}", user);
 	}
 	
-	@Test
-	public void testLogin(){
-		User user = userManager.login("zzx", "zzx");
-		logger.info(user.toString());
-	}
-	
-	
 }
