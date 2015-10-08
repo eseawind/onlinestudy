@@ -1,13 +1,13 @@
-function alertMessage(container, data) {
+function alertMessage(container, sign, message) {
 	
 	// 如果存在之前的alert组件则滑动隐藏
 	$("#" + tempAlertId).slideUp().remove();
 	
 	// 找到container元素前追加，并调用slideDown事件
-	if (data.successSign == true) {
-		alertSuccess(container, data.message);
+	if (sign == true) {
+		alertSuccess(container, message);
 	} else {
-		alertDanger(container, data.message);
+		alertDanger(container, message);
 	}
 }
 
