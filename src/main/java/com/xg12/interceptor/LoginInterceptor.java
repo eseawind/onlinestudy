@@ -42,7 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object object) throws Exception {
-		logger.debug("excludeUrls:{}", excludeUrls);
+		logger.debug("IP：{} 试图访问：{} 地址", request.getRemoteAddr(), WebUtil.getURI(request));
 		// 判断session是否有user对象
 		HttpSession httpSession = request.getSession();
 		// TODO 对于不进行拦截的链接需要采取另外的方式
@@ -58,7 +58,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 	
 	/**
 	 * 当前请求路径是否在排除的链接之内
-	 * @param request
+	 * @param request HttpServletRequest 当前的请求
 	 * @return
 	 */
 	public boolean isExclude(HttpServletRequest request){
