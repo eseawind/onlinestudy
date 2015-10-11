@@ -53,6 +53,10 @@ public class PersonController extends BaseController{
 		if(!StringUtils.isEmpty(userToUpdate.getPassword())){
 			user.setPassword(userToUpdate.getPassword());
 		}
+		user.setAddress(userToUpdate.getAddress());
+		user.setMail(userToUpdate.getMail());
+		user.setMobile(userToUpdate.getMobile());
+		user.setSignature(userToUpdate.getSignature());
 		
 		userManager.updateByPrimaryKey(user);
 		
@@ -63,6 +67,6 @@ public class PersonController extends BaseController{
 		responseMap.put(JSON_SIGN, true);
 		responseMap.put(JSON_MESSAGE, "修改成功!");
 		
-		WebUtil.returnJson(response, JSONObject.fromObject(responseMap).toString());
+		WebUtil.returnJSON(response, JSONObject.fromObject(responseMap).toString());
 	}
 }

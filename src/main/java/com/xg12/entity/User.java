@@ -9,7 +9,15 @@ public class User {
 
     private String name;
 
-    private Boolean stuts;
+    private Boolean status;
+
+    private String mobile;
+
+    private String address;
+
+    private String signature;
+
+    private String mail;
 
     public Integer getUserId() {
         return userId;
@@ -43,11 +51,43 @@ public class User {
         this.name = name == null ? null : name.trim();
     }
 
-    public Boolean getStuts() {
-        return stuts;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setStuts(Boolean stuts) {
-        this.stuts = stuts;
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature == null ? null : signature.trim();
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail == null ? null : mail.trim();
     }
 }

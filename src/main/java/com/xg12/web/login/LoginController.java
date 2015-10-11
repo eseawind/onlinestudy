@@ -4,6 +4,7 @@ import static com.common.util.Constants.*;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.common.util.WebUtil;
 import com.mysql.jdbc.StringUtils;
+import com.xg12.entity.Role;
 import com.xg12.entity.User;
 import com.xg12.web.BaseController;
 
@@ -59,6 +61,10 @@ public class LoginController extends BaseController {
 				// 将用户存到session中
 				httpSession.setAttribute(SESSION_USER, user);
 				logger.info("用户名：{}，登录系统:{}", user.getUsername(), new Date());
+				
+				// 获取当前用户的权限信息
+				List<Role> roleList = roleManager.getRoleListByUserId(user.getUserId());
+				httpSession.setAttribute(SESSION_ROLES, roleList);
 			}else{
 				responseMap.put(JSON_SIGN, false);
 				responseMap.put(JSON_MESSAGE, "用户名或密码错误!");
@@ -69,7 +75,7 @@ public class LoginController extends BaseController {
 		}
 		
 		// 返回JSON
-		WebUtil.returnJson(response, JSONObject.fromObject(responseMap).toString());
+		WebUtil.returnJSON(response, JSONObject.fromObject(responseMap).toString());
 	}
 	
 	@RequestMapping(value="logout", method=RequestMethod.GET)

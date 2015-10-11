@@ -1,11 +1,11 @@
-package com.xg12.dao;
+package com.xg12.mapper;
 
 import com.xg12.entity.Section;
 import com.xg12.entity.SectionCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface SectionDao {
+public interface SectionMapper {
     int countByExample(SectionCriteria example);
 
     int deleteByExample(SectionCriteria example);

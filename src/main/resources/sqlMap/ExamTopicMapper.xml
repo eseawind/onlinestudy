@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xg12.dao.ExamTopicDao" >
+<mapper namespace="com.xg12.mapper.ExamTopicMapper" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.ExamTopic" >
     <result column="exam_id" property="examId" jdbcType="INTEGER" />
     <result column="topic_id" property="topicId" jdbcType="INTEGER" />

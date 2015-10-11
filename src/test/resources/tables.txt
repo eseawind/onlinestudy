@@ -2,6 +2,7 @@ t_class
 t_class_course
 t_course
 t_course_exam
+t_course_section
 t_exam
 t_exam_topic
 t_operation
@@ -11,7 +12,6 @@ t_role
 t_role_operation
 t_student
 t_student_class
-t_teacher
 t_teacher_course
 t_term
 t_topic

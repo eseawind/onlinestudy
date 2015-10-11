@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.xg12.entity.TeacherCourse;
 import com.xg12.entity.TeacherCourseCriteria;
+import com.xg12.entity.UserRoleCriteria;
 import com.xg12.manager.BaseManager;
 import com.xg12.manager.TeacherCourseManager;
 
@@ -40,6 +41,13 @@ public class TeacherCourseManagerImpl extends BaseManager implements TeacherCour
 
 	public int updateByExample(TeacherCourse record, TeacherCourseCriteria example) {
 		return teacherCourseDao.updateByExample(record, example);
+	}
+
+	public void deleteByUserId(Integer userId) {
+		TeacherCourseCriteria example = new TeacherCourseCriteria();
+		example.createCriteria().andUserIdEqualTo(userId);
+		
+		teacherCourseDao.deleteByExample(example);
 	}
 
 }

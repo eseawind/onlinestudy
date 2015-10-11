@@ -1,12 +1,37 @@
 package com.xg12.web;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.xg12.manager.*;
+import com.common.util.Constants;
+import com.xg12.manager.ClassCourseManager;
+import com.xg12.manager.ClassManager;
+import com.xg12.manager.CourseExamManager;
+import com.xg12.manager.CourseManager;
+import com.xg12.manager.CourseSectionManager;
+import com.xg12.manager.ExamManager;
+import com.xg12.manager.ExamTopicManager;
+import com.xg12.manager.OperationManager;
+import com.xg12.manager.PracticeAnswerManager;
+import com.xg12.manager.PracticeManager;
+import com.xg12.manager.RoleManager;
+import com.xg12.manager.RoleOperationManager;
+import com.xg12.manager.SectionManager;
+import com.xg12.manager.StudentClassManager;
+import com.xg12.manager.TeacherCourseManager;
+import com.xg12.manager.TermManager;
+import com.xg12.manager.TopicAnswerManager;
+import com.xg12.manager.TopicManager;
+import com.xg12.manager.TopicTopicAnswerManager;
+import com.xg12.manager.TopicTypeManager;
+import com.xg12.manager.UserManager;
+import com.xg12.manager.UserRoleManager;
 
 
 /**
@@ -67,6 +92,19 @@ public abstract class BaseController {
 	protected UserManager userManager;
 	@Autowired
 	protected UserRoleManager userRoleManager;
+	
+	/**
+	 * 生成基础的返回的map
+	 * @param sign
+	 * @param message
+	 * @return
+	 */
+	protected Map<String, Object> getBaseResponseMap(boolean sign, String message){
+		Map<String, Object> responseMap = new HashMap<String, Object>();
+		responseMap.put(Constants.JSON_SIGN, sign);
+		responseMap.put(Constants.JSON_MESSAGE, message);
+		return responseMap;
+	}
 
 	@ExceptionHandler
 	@ResponseBody

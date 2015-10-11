@@ -2,28 +2,28 @@ package com.xg12.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.xg12.dao.ClassCourseDao;
-import com.xg12.dao.ClassDao;
-import com.xg12.dao.CourseDao;
-import com.xg12.dao.CourseExamDao;
-import com.xg12.dao.CourseSectionDao;
-import com.xg12.dao.ExamDao;
-import com.xg12.dao.ExamTopicDao;
-import com.xg12.dao.OperationDao;
-import com.xg12.dao.PracticeAnswerDao;
-import com.xg12.dao.PracticeDao;
-import com.xg12.dao.RoleDao;
-import com.xg12.dao.RoleOperationDao;
-import com.xg12.dao.SectionDao;
-import com.xg12.dao.StudentClassDao;
-import com.xg12.dao.TeacherCourseDao;
-import com.xg12.dao.TermDao;
-import com.xg12.dao.TopicAnswerDao;
-import com.xg12.dao.TopicDao;
-import com.xg12.dao.TopicTopicAnswerDao;
-import com.xg12.dao.TopicTypeDao;
-import com.xg12.dao.UserDao;
-import com.xg12.dao.UserRoleDao;
+import com.xg12.mapper.ClassCourseMapper;
+import com.xg12.mapper.ClassMapper;
+import com.xg12.mapper.CourseExamMapper;
+import com.xg12.mapper.CourseMapper;
+import com.xg12.mapper.CourseSectionMapper;
+import com.xg12.mapper.ExamMapper;
+import com.xg12.mapper.ExamTopicMapper;
+import com.xg12.mapper.OperationMapper;
+import com.xg12.mapper.PracticeAnswerMapper;
+import com.xg12.mapper.PracticeMapper;
+import com.xg12.mapper.RoleMapper;
+import com.xg12.mapper.RoleOperationMapper;
+import com.xg12.mapper.SectionMapper;
+import com.xg12.mapper.StudentClassMapper;
+import com.xg12.mapper.TeacherCourseMapper;
+import com.xg12.mapper.TermMapper;
+import com.xg12.mapper.TopicAnswerMapper;
+import com.xg12.mapper.TopicMapper;
+import com.xg12.mapper.TopicTopicAnswerMapper;
+import com.xg12.mapper.TopicTypeMapper;
+import com.xg12.mapper.UserMapper;
+import com.xg12.mapper.UserRoleMapper;
 
 /**
  * @Project: onlinestudy
@@ -34,48 +34,48 @@ import com.xg12.dao.UserRoleDao;
 public class BaseManager {
 	
 	@Autowired
-	protected ClassCourseDao classCourseDao;
+	protected ClassCourseMapper classCourseDao;
 	@Autowired
-	protected ClassDao classDao;
+	protected ClassMapper classDao;
 	@Autowired
-	protected CourseDao courseDao;
+	protected CourseMapper courseDao;
 	@Autowired
-	protected CourseSectionDao courseSectionDao;
+	protected CourseSectionMapper courseSectionDao;
 	@Autowired
-	protected CourseExamDao courseExamDao;
+	protected CourseExamMapper courseExamDao;
 	@Autowired
-	protected ExamDao examDao;
+	protected ExamMapper examDao;
 	@Autowired
-	protected ExamTopicDao examTopicDao;
+	protected ExamTopicMapper examTopicDao;
 	@Autowired
-	protected OperationDao operationDao;
+	protected OperationMapper operationDao;
 	@Autowired
-	protected PracticeAnswerDao practiceAnswerDao;
+	protected PracticeAnswerMapper practiceAnswerDao;
 	@Autowired
-	protected PracticeDao practiceDao;
+	protected PracticeMapper practiceDao;
 	@Autowired
-	protected RoleDao roleDao;
+	protected RoleMapper roleDao;
 	@Autowired
-	protected RoleOperationDao roleOperationDao;
+	protected RoleOperationMapper roleOperationDao;
 	@Autowired
-	protected SectionDao sectionDao;
+	protected SectionMapper sectionDao;
 	@Autowired
-	protected StudentClassDao studentClassDao;
+	protected StudentClassMapper studentClassDao;
 	@Autowired
-	protected TeacherCourseDao teacherCourseDao;
+	protected TeacherCourseMapper teacherCourseDao;
 	@Autowired
-	protected TermDao termDao;
+	protected TermMapper termDao;
 	@Autowired
-	protected TopicAnswerDao topicAnswerDao;
+	protected TopicAnswerMapper topicAnswerDao;
 	@Autowired
-	protected TopicDao topicDao;
+	protected TopicMapper topicDao;
 	@Autowired
-	protected TopicTopicAnswerDao topicTopicAnswerDao;
+	protected TopicTopicAnswerMapper topicTopicAnswerDao;
 	@Autowired
-	protected TopicTypeDao topicTypeDao;
+	protected TopicTypeMapper topicTypeDao;
 	@Autowired
-	protected UserDao userDao;
+	protected UserMapper userDao;
 	@Autowired
-	protected UserRoleDao userRoleDao;
+	protected UserRoleMapper userRoleDao;
 
 }

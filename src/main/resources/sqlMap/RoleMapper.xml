@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xg12.dao.RoleDao" >
+<mapper namespace="com.xg12.mapper.RoleMapper" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.Role" >
     <id column="role_id" property="roleId" jdbcType="INTEGER" />
     <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    role_id, role_name
+    role_id, role_name, description
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xg12.entity.RoleCriteria" >
     select
@@ -97,8 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.xg12.entity.Role" >
-    insert into t_role (role_id, role_name)
-    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR})
+    insert into t_role (role_id, role_name, description
+      )
+    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.xg12.entity.Role" >
     insert into t_role
@@ -109,6 +112,9 @@
       <if test="roleName != null" >
         role_name,
       </if>
+      <if test="description != null" >
+        description,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="roleId != null" >
@@ -116,6 +122,9 @@
       </if>
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -134,6 +143,9 @@
       <if test="record.roleName != null" >
         role_name = #{record.roleName,jdbcType=VARCHAR},
       </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,7 +154,8 @@
   <update id="updateByExample" parameterType="map" >
     update t_role
     set role_id = #{record.roleId,jdbcType=INTEGER},
-      role_name = #{record.roleName,jdbcType=VARCHAR}
+      role_name = #{record.roleName,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +166,16 @@
       <if test="roleName != null" >
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
     </set>
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.xg12.entity.Role" >
     update t_role
-    set role_name = #{roleName,jdbcType=VARCHAR}
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
 </mapper>

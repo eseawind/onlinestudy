@@ -1,11 +1,11 @@
-package com.xg12.dao;
+package com.xg12.mapper;
 
 import com.xg12.entity.Topic;
 import com.xg12.entity.TopicCriteria;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface TopicDao {
+public interface TopicMapper {
     int countByExample(TopicCriteria example);
 
     int deleteByExample(TopicCriteria example);

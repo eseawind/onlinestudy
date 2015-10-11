@@ -33,7 +33,7 @@
 					}
 				},
 				error:function(data){
-					alert($(".alertDiv"), false, "服务器发生错误，请稍后重试!");
+					alertMessage($(".alertDiv"), false, "服务器发生错误，请稍后重试!");
 				}
 			})
 			

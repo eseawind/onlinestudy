@@ -23,4 +23,7 @@ public interface StudentClassManager {
 
 	int updateByExample(@Param("record") StudentClass record,
 			@Param("example") StudentClassCriteria example);
+	
+	// 删除userId对应的数据
+	void delteByUserId(Integer userId);
 }

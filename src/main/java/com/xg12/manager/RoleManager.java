@@ -31,4 +31,6 @@ public interface RoleManager {
 	int updateByPrimaryKeySelective(Role record);
 
 	int updateByPrimaryKey(Role record);
+	
+	List<Role> getRoleListByUserId(Integer userId);
 }

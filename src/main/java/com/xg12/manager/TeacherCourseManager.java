@@ -23,4 +23,7 @@ public interface TeacherCourseManager {
 
 	int updateByExample(@Param("record") TeacherCourse record,
 			@Param("example") TeacherCourseCriteria example);
+
+	// 删除userId对应的数据
+	void deleteByUserId(Integer userId);
 }

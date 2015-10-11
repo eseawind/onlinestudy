@@ -33,5 +33,7 @@ public interface UserManager {
 	int updateByPrimaryKey(User record);
 	
 	User getUniqueUserByUserName(String username);
+
+	boolean checkUsernameIsExist(String username);
 	
 }

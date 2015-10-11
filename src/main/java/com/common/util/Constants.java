@@ -10,5 +10,8 @@ public class Constants {
 	
 	/** session存储的user的key */
 	public final static String SESSION_USER = "user";
+	
+	/** session存储roles的key */
+	public final static String SESSION_ROLES = "roles";
 
 }

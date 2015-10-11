@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import com.xg12.entity.User;
 import com.xg12.entity.UserCriteria;
@@ -69,7 +70,33 @@ public class UserManagerImpl extends BaseManager implements UserManager{
 	}
 
 	public User getUniqueUserByUserName(String username){
-		return userDao.getUniqueUserByUserName(username);
+		UserCriteria userCriteria = new UserCriteria();
+		userCriteria.setDistinct(true);
+		userCriteria.createCriteria().andUsernameEqualTo(username);
+		
+		// 获取筛选结果
+		List<User> userList = userDao.selectByExample(userCriteria);
+
+		// 筛选结果为0，返回null
+		if(userList == null || userList.size() == 0)
+			return null;
+		
+		return userList.get(0);
+	}
+
+	public boolean checkUsernameIsExist(String username) {
+		// 用户名为空认为存在
+		if(StringUtils.isEmpty(username)){
+			return true;
+		}
+		
+		// 从数据库中数据对应的user判断是否为null
+		User user = this.getUniqueUserByUserName(username);
+		if(user == null){
+			return false;
+		}else{
+			return true;
+		}
 	}
 
 }

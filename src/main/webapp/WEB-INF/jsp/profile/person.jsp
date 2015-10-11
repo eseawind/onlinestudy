@@ -13,14 +13,22 @@ $(document).ready(function() {
 	$("#form").submit(function() {
 		var name = $("input[name='name']").val();
 		var password = $("input[name='password']").val();
+		var mobile = $("input[name='mobile']").val();
+		var signature = $("input[name='signature']").val();
+		var address = $("input[name='address']").val();
+		var mail = $("input[name='mail']").val();
 		// TODO 此处有待改进-----使用其他方式获取form
 		var url = $("#form").attr("action");
 		
 		$.ajax({
 			url: url,
 			data:{
-				name:name,
-				password:password
+				name: name,
+				password: password,
+				mobile: mobile,
+				signature: signature,
+				mail: mail,
+				address: address
 			},
 			type:'post',
 			dataType:'json',
@@ -68,26 +76,31 @@ $(document).ready(function() {
 						<label for="firstname" class="col-sm-2 control-label">个性签名</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" name="signature"
-								placeholder="请输入个性签名" value="">
+								placeholder="请输入个性签名" value="${user.signature }">
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label for="firstname" class="col-sm-2 control-label">手机号码</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="mobile"
-								placeholder="请输入手机号码" value="">
+							<input type="text" class="form-control" name="mobile" pattern="^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$" title="请输入正确的手机格式"
+								placeholder="请输入手机号码" value="${presentUser.mobile}">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
-						<label for="firstname" class="col-sm-2 control-label">邮箱</label>
+						<label for="firstname" class="col-sm-2 control-label">地址</label>
 						<div class="col-sm-10">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="邮箱地址">
-								<span class="input-group-addon">@</span>
-								<input type="text" class="form-control" style="width: 100px" placeholder="域名">
-							</div>
+							<input type="text" class="form-control" name="address"
+								placeholder="请输入地址" value="${presentUser.address}">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="lastname" class="col-sm-2 control-label">邮箱</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" placeholder="邮箱地址" name="mail"
+								pattern="^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$" title="邮箱正确格式：xxx@xxx.xxx">
 						</div>
 					</div>
 					

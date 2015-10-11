@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xg12.dao.SectionDao" >
+<mapper namespace="com.xg12.mapper.SectionMapper" >
   <resultMap id="BaseResultMap" type="com.xg12.entity.Section" >
     <id column="section_id" property="sectionId" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />

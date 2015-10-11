@@ -42,4 +42,11 @@ public class StudentClassManagerImpl extends BaseManager implements StudentClass
 		return studentClassDao.updateByExample(record, example);
 	}
 
+	public void delteByUserId(Integer userId) {
+		StudentClassCriteria example = new StudentClassCriteria	();
+		example.createCriteria().andUserIdEqualTo(userId);
+		
+		studentClassDao.deleteByExample(example);
+	}
+
 }

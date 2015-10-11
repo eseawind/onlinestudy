@@ -32,7 +32,7 @@
 	
 	<!-- MyBatis 映射扫描 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.xg12.dao" />
+		<property name="basePackage" value="com.xg12.mapper" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 	
@@ -42,5 +42,5 @@
 	</bean>
 	
 	<!-- 自动扫描的包名 -->
-    <context:component-scan base-package="com.xg12.manager"/>
+	<context:component-scan base-package="com.xg12.manager"/>
 </beans>

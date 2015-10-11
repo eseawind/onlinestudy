@@ -23,4 +23,7 @@ public interface UserRoleManager {
 
 	int updateByExample(@Param("record") UserRole record,
 			@Param("example") UserRoleCriteria example);
+
+	// 删除userId对应的数据
+	void deleteByUserId(Integer userId);
 }

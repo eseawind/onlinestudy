@@ -1,12 +1,17 @@
 package com.xg12.manager.impl;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xg12.entity.Role;
 import com.xg12.entity.RoleCriteria;
+import com.xg12.entity.UserRole;
+import com.xg12.entity.UserRoleCriteria;
 import com.xg12.manager.BaseManager;
 import com.xg12.manager.RoleManager;
 
@@ -56,6 +61,21 @@ public class RoleManagerImpl extends BaseManager implements RoleManager {
 
 	public int updateByPrimaryKey(Role record) {
 		return roleDao.updateByPrimaryKey(record);
+	}
+
+	public List<Role> getRoleListByUserId(Integer userId) {
+		UserRoleCriteria userRoleCriteria = new UserRoleCriteria();
+		userRoleCriteria.createCriteria().andUserIdEqualTo(userId);
+		
+		List<UserRole> userRoleList = userRoleDao.selectByExample(userRoleCriteria);
+		
+		// 获取该用户的所有权限
+		List<Role> roleList = new ArrayList<Role>();
+		for(UserRole userRole :userRoleList){
+			roleList.add(roleDao.selectByPrimaryKey(userRole.getRoleId()));
+		}
+		
+		return roleList;
 	}
 	
 }

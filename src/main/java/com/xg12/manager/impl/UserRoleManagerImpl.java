@@ -42,4 +42,11 @@ public class UserRoleManagerImpl extends BaseManager implements UserRoleManager 
 		return userRoleDao.updateByExample(record, example);
 	}
 
+	public void deleteByUserId(Integer userId) {
+		UserRoleCriteria example = new UserRoleCriteria();
+		example.createCriteria().andUserIdEqualTo(userId);
+		
+		userRoleDao.deleteByExample(example);
+	}
+
 }
