@@ -12,7 +12,7 @@
 		$("#loginForm").submit(function() {
 			var username = $("input[name='username']").val();
 			var password = $("input[name='password']").val();
-			// 此处有待改进-----使用其他方式获取form
+			// TODO 此处有待改进-----使用其他方式获取form
 			var url = $("#loginForm").attr("action");
 			
 			$.ajax({
@@ -27,7 +27,9 @@
 					alertMessage($(".alertDiv"), data.successSign, data.message);
 					// TODO 间隔几秒跳转
 					if(data.successSign == true){
-						location.href="${contextPath}/index";
+						setTimeout(function(){
+							location.href="${contextPath}/index";
+						}, 300);
 					}
 				},
 				error:function(data){
