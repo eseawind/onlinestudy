@@ -1,8 +1,6 @@
 package com.xg12.web.login;
 
-import static com.common.util.Constants.JSON_MESSAGE;
-import static com.common.util.Constants.JSON_SIGN;
-import static com.common.util.Constants.SESSION_USER;
+import static com.common.util.Constants.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -24,6 +22,13 @@ import com.mysql.jdbc.StringUtils;
 import com.xg12.entity.User;
 import com.xg12.web.BaseController;
 
+/**
+ * 登录controller
+ * @Project: onlinestudy
+ * @File: LoginController.java
+ * @Date: 2015年10月9日上午10:14:37
+ * @Author: ZHUANGZHIXUAN
+*/
 @Controller
 public class LoginController extends BaseController {
 	
@@ -50,7 +55,7 @@ public class LoginController extends BaseController {
 		if(user != null){
 			if(password.equals(user.getPassword())){
 				responseMap.put(JSON_SIGN, true);
-				responseMap.put(JSON_MESSAGE, "登录成功");
+				responseMap.put(JSON_MESSAGE, "登录成功，正在跳转中...");
 				// 将用户存到session中
 				httpSession.setAttribute(SESSION_USER, user);
 				logger.info("用户名：{}，登录系统:{}", user.getUsername(), new Date());
@@ -67,7 +72,7 @@ public class LoginController extends BaseController {
 		WebUtil.returnJson(response, JSONObject.fromObject(responseMap).toString());
 	}
 	
-	@RequestMapping("logout")
+	@RequestMapping(value="logout", method=RequestMethod.GET)
 	public String logout(HttpSession httpSession){
 		// 移除httpSession中的user
 		httpSession.removeAttribute(SESSION_USER);
