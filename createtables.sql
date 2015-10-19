@@ -26,8 +26,6 @@ drop table if exists t_section;
 
 drop table if exists t_student_class;
 
-drop table if exists t_teacher_course;
-
 drop table if exists t_term;
 
 drop table if exists t_topic;
@@ -187,15 +185,6 @@ create table t_student_class
 );
 
 /*==============================================================*/
-/* Table: t_teacher_course                                      */
-/*==============================================================*/
-create table t_teacher_course
-(
-   course_id            int,
-   user_id              int
-);
-
-/*==============================================================*/
 /* Table: t_term                                                */
 /*==============================================================*/
 create table t_term
@@ -259,7 +248,7 @@ create table t_user
    username             varchar(30),
    password             varchar(30),
    name                 varchar(18),
-   stuts                bool,
+   status               bool,
    mobile               varchar(11),
    address              varchar(50),
    signature            varchar(225),
@@ -330,12 +319,6 @@ alter table t_student_class add constraint FK_Reference_34 foreign key (user_id)
 alter table t_student_class add constraint FK_Reference_9 foreign key (class_id)
       references t_class (class_id) on delete restrict on update restrict;
 
-alter table t_teacher_course add constraint FK_Reference_13 foreign key (course_id)
-      references t_course (course_id) on delete restrict on update restrict;
-
-alter table t_teacher_course add constraint FK_Reference_36 foreign key (user_id)
-      references t_user (user_id) on delete restrict on update restrict;
-
 alter table t_topic add constraint FK_Reference_22 foreign key (topic_type_id)
       references t_topic_type (topic_type_id) on delete restrict on update restrict;
 
@@ -353,3 +336,12 @@ alter table t_user_role add constraint FK_Reference_27 foreign key (user_id)
 
 alter table t_user_role add constraint FK_Reference_28 foreign key (role_id)
       references t_role (role_id) on delete restrict on update restrict;
+      
+/* init */
+INSERT INTO t_user(username, password, name, status) VALUES ('000000','000000','Mortimer', 1);
+INSERT INTO t_role(role_name, description) values ('admin','系统管理员');
+INSERT INTO t_role(role_name, description) values ('teacher','教师');
+INSERT INTO t_role(role_name, description) values ('student','学生');
+INSERT INTO t_user_role(user_id, role_id) VALUES (1, 1);
+INSERT INTO t_user_role(user_id, role_id) VALUES (1, 2);
+INSERT INTO t_user_role(user_id, role_id) VALUES (1, 3);
